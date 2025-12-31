@@ -134,7 +134,7 @@
 
         .nav-tab {
             flex: 1;
-            padding: 10px 8px;
+            padding: 14px 8px;
             background: transparent;
             border: none;
             border-radius: var(--radius-md);
@@ -146,6 +146,7 @@
             position: relative;
             text-align: center;
             white-space: nowrap;
+            min-height: 44px;
         }
 
         .nav-tab:hover {
@@ -266,6 +267,19 @@
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             flex-shrink: 0;
             background: var(--bg-elevated);
+            position: relative;
+        }
+
+        /* Increase touch target to 44px without changing visual size */
+        .non-neg-check::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background: transparent;
         }
 
         .non-neg-check:hover {
@@ -448,7 +462,7 @@
         .veg-title { color: var(--accent-green); border-color: var(--accent-green) !important; }
 
         .builder-option {
-            padding: 12px 10px;
+            padding: 14px 10px;
             text-align: center;
             border-radius: var(--radius-sm);
             margin-bottom: 8px;
@@ -458,6 +472,7 @@
             transition: all 0.2s ease;
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
+            min-height: 44px;
         }
 
         .builder-option:hover {
@@ -849,7 +864,7 @@
 
         .day-btn {
             flex-shrink: 0;
-            padding: 10px 16px;
+            padding: 14px 16px;
             background: transparent;
             border: none;
             border-radius: var(--radius-sm);
@@ -858,6 +873,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
+            min-height: 44px;
         }
 
         .day-btn:hover {
@@ -1610,6 +1626,38 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
         }
+
+        /* Expandable Cards */
+        .card-header.expandable {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .card-header.expandable::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+            margin-left: auto;
+        }
+
+        .card-header.expandable.collapsed::after {
+            transform: rotate(-90deg);
+        }
+
+        .card-content {
+            overflow: hidden;
+            max-height: 2000px;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .card-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -1760,7 +1808,7 @@
 
             <!-- Morning Routine -->
             <div class="card">
-                <div class="card-header">
+                <div class="card-header expandable">
                     <div class="card-icon" style="background: rgba(249, 115, 22, 0.2);">
                         <span style="color: var(--accent-orange);">&#9728;</span>
                     </div>
@@ -1769,15 +1817,17 @@
                         <div class="card-subtitle">Do this before you leave the house</div>
                     </div>
                 </div>
-                <ol style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px;">
-                    <li style="margin-bottom: 10px;"><strong>Wake up</strong> - Fill water bottle, drink some while kettle boils</li>
-                    <li style="margin-bottom: 10px;"><strong>Cook eggs</strong> (scrambled = fastest, 3-4 mins) OR grab protein shake if rushing</li>
-                    <li style="margin-bottom: 10px;"><strong>Pack your bag:</strong> Lunch + afternoon snack (protein bar/banana) + water bottle</li>
-                    <li><strong>Leave</strong> - You're set for the whole day</li>
-                </ol>
-                <p style="margin-top: 15px; padding: 12px; background: rgba(249, 115, 22, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--accent-orange);">
-                    <strong>No time for eggs?</strong> Grab a protein shake + banana. Still counts as breakfast.
-                </p>
+                <div class="card-content">
+                    <ol style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>Wake up</strong> - Fill water bottle, drink some while kettle boils</li>
+                        <li style="margin-bottom: 10px;"><strong>Cook eggs</strong> (scrambled = fastest, 3-4 mins) OR grab protein shake if rushing</li>
+                        <li style="margin-bottom: 10px;"><strong>Pack your bag:</strong> Lunch + afternoon snack (protein bar/banana) + water bottle</li>
+                        <li><strong>Leave</strong> - You're set for the whole day</li>
+                    </ol>
+                    <p style="margin-top: 15px; padding: 12px; background: rgba(249, 115, 22, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--accent-orange);">
+                        <strong>No time for eggs?</strong> Grab a protein shake + banana. Still counts as breakfast.
+                    </p>
+                </div>
             </div>
 
             <!-- 4/6 Rule -->
@@ -1837,7 +1887,7 @@
 
             <!-- Housemates cooking -->
             <div class="card" style="border-color: var(--accent-purple);">
-                <div class="card-header">
+                <div class="card-header expandable">
                     <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
                         <span style="color: var(--accent-purple);">&#127968;</span>
                     </div>
@@ -1846,28 +1896,30 @@
                         <div class="card-subtitle">This happens 3-5 nights a week. Here's the exact system.</div>
                     </div>
                 </div>
-                <div style="color: var(--text-secondary); font-size: 0.9rem;">
-                    <p style="margin-bottom: 15px;"><strong>The Rule:</strong> Eat what they make. You're still on-plan.</p>
+                <div class="card-content">
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                        <p style="margin-bottom: 15px;"><strong>The Rule:</strong> Eat what they make. You're still on-plan.</p>
 
-                    <p style="margin-bottom: 10px;"><strong>The 3 Adjustments:</strong></p>
-                    <ol style="padding-left: 20px; margin-bottom: 15px;">
-                        <li style="margin-bottom: 8px;"><strong>Portion:</strong> Take ONE serving. No seconds unless you're genuinely hungry (not just because it's there).</li>
-                        <li style="margin-bottom: 8px;"><strong>Extras:</strong> Skip the garlic bread, the second helping of cheese, the side of chips if you don't need them.</li>
-                        <li style="margin-bottom: 8px;"><strong>Drink:</strong> Water or diet drink. Not a beer or Coke (unless it's a special occasion).</li>
-                    </ol>
+                        <p style="margin-bottom: 10px;"><strong>The 3 Adjustments:</strong></p>
+                        <ol style="padding-left: 20px; margin-bottom: 15px;">
+                            <li style="margin-bottom: 8px;"><strong>Portion:</strong> Take ONE serving. No seconds unless you're genuinely hungry (not just because it's there).</li>
+                            <li style="margin-bottom: 8px;"><strong>Extras:</strong> Skip the garlic bread, the second helping of cheese, the side of chips if you don't need them.</li>
+                            <li style="margin-bottom: 8px;"><strong>Drink:</strong> Water or diet drink. Not a beer or Coke (unless it's a special occasion).</li>
+                        </ol>
 
-                    <div style="padding: 15px; background: rgba(168, 85, 247, 0.1); border-radius: 8px; margin-top: 15px;">
-                        <p style="margin-bottom: 10px;"><strong>Common housemate meals:</strong></p>
-                        <p style="margin-bottom: 8px;">&#127837; <strong>Pasta bolognese:</strong> Have one bowl, skip the garlic bread</p>
-                        <p style="margin-bottom: 8px;">&#127835; <strong>Curry & rice:</strong> Normal portion, skip the naan</p>
-                        <p style="margin-bottom: 8px;">&#127829; <strong>Pizza night:</strong> 2-3 slices max, side salad if available</p>
-                        <p style="margin-bottom: 8px;">&#127828; <strong>Burgers:</strong> Eat the burger, skip half the chips</p>
-                        <p>&#127836; <strong>Stir-fry:</strong> Load up - this is a good one</p>
+                        <div style="padding: 15px; background: rgba(168, 85, 247, 0.1); border-radius: 8px; margin-top: 15px;">
+                            <p style="margin-bottom: 10px;"><strong>Common housemate meals:</strong></p>
+                            <p style="margin-bottom: 8px;">&#127837; <strong>Pasta bolognese:</strong> Have one bowl, skip the garlic bread</p>
+                            <p style="margin-bottom: 8px;">&#127835; <strong>Curry & rice:</strong> Normal portion, skip the naan</p>
+                            <p style="margin-bottom: 8px;">&#127829; <strong>Pizza night:</strong> 2-3 slices max, side salad if available</p>
+                            <p style="margin-bottom: 8px;">&#127828; <strong>Burgers:</strong> Eat the burger, skip half the chips</p>
+                            <p>&#127836; <strong>Stir-fry:</strong> Load up - this is a good one</p>
+                        </div>
+
+                        <p style="margin-top: 15px; padding: 12px; background: var(--bg-card-hover); border-radius: 8px;">
+                            <strong>You can still tick the dinner checkbox</strong> on housemate nights. You ate a real meal with protein. That counts.
+                        </p>
                     </div>
-
-                    <p style="margin-top: 15px; padding: 12px; background: var(--bg-card-hover); border-radius: 8px;">
-                        <strong>You can still tick the dinner checkbox</strong> on housemate nights. You ate a real meal with protein. That counts.
-                    </p>
                 </div>
             </div>
 
@@ -1906,7 +1958,7 @@
 
             <!-- Weekend Survival Guide -->
             <div class="card" style="border-color: var(--accent-yellow);">
-                <div class="card-header">
+                <div class="card-header expandable">
                     <div class="card-icon" style="background: rgba(234, 179, 8, 0.2);">
                         <span style="color: var(--accent-yellow);">&#127881;</span>
                     </div>
@@ -1915,7 +1967,8 @@
                         <div class="card-subtitle">Friday-Sunday when everything goes to shit.</div>
                     </div>
                 </div>
-                <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                <div class="card-content">
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">
                     <p style="margin-bottom: 15px;"><strong>&#128260; FRIDAY NIGHT (I earned it):</strong></p>
                     <ul style="padding-left: 20px; margin-bottom: 20px;">
                         <li>Going out with the lads? Check Eating Out tab for damage control</li>
@@ -1943,12 +1996,13 @@
                         <p style="margin-bottom: 8px;"><strong>Weekend Goal:</strong> Don't be perfect. Just don't go nuclear.</p>
                         <p>If you hit 2-3 checkboxes on Sat/Sun instead of 4+, that's FINE. The week is won Monday-Friday. Weekends are damage limitation.</p>
                     </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Edge Cases FAQ -->
             <div class="card">
-                <div class="card-header">
+                <div class="card-header expandable">
                     <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
                         <span style="color: var(--accent-purple);">&#10067;</span>
                     </div>
@@ -1957,7 +2011,8 @@
                         <div class="card-subtitle">Answers to "but what if..." questions.</div>
                     </div>
                 </div>
-                <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                <div class="card-content">
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">
                     <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px; margin-bottom: 15px;">
                         <p style="margin-bottom: 8px;"><strong style="color: var(--text-primary);">Q: Housemate makes pure junk (full fry at 9pm). Do I eat it?</strong></p>
                         <p><strong style="color: var(--accent-green);">A:</strong> Eat it. One serving. Skip the seconds. Tick the box. It's one meal in 21. If it happens regularly, have a chat with them or keep chicken/eggs in the fridge as backup.</p>
@@ -1985,6 +2040,7 @@
                     <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px;">
                         <p style="margin-bottom: 8px;"><strong style="color: var(--text-primary);">Q: What if NOTHING on this page applies to my situation?</strong></p>
                         <p><strong style="color: var(--accent-green);">A:</strong> Default rule: Pick something with protein in it, skip the extras, drink water. You're on-plan. Move on.</p>
+                    </div>
                     </div>
                 </div>
             </div>
