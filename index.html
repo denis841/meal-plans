@@ -3392,6 +3392,21 @@
             }
         });
 
+        // Expandable Cards
+        function setupExpandableCards() {
+            const expandableHeaders = document.querySelectorAll('.card-header.expandable');
+
+            expandableHeaders.forEach(header => {
+                const content = header.nextElementSibling;
+                if (content && content.classList.contains('card-content')) {
+                    header.addEventListener('click', () => {
+                        header.classList.toggle('collapsed');
+                        content.classList.toggle('collapsed');
+                    });
+                }
+            });
+        }
+
         // Init
         document.addEventListener('DOMContentLoaded', async () => {
             // Try to load client-specific data first
@@ -3414,6 +3429,7 @@
             setupReset();
             setupTheme();
             populateTodayMeals();
+            setupExpandableCards();
         });
     </script>
 
