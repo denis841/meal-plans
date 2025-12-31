@@ -2723,8 +2723,63 @@
     </div>
 
     <script>
-        // Meal Plans Data
-        const mealPlans = {
+        // === DYNAMIC CLIENT LOADING ===
+        // Add referrer policy for security
+        const metaReferrer = document.createElement('meta');
+        metaReferrer.name = 'referrer';
+        metaReferrer.content = 'no-referrer';
+        document.head.appendChild(metaReferrer);
+
+        // Check for client ID in hash URL
+        const clientId = window.location.hash.slice(1);
+        const UUID_REGEX = /^[a-f0-9]{32}$/i;
+        let clientDataLoaded = false;
+
+        async function loadClientData() {
+            if (!clientId) {
+                // No client ID - use default embedded data
+                return false;
+            }
+
+            if (!UUID_REGEX.test(clientId)) {
+                showClientError('Invalid link. Please use the link your coach sent you.');
+                return true; // Return true to prevent default init
+            }
+
+            try {
+                const response = await fetch(`data/${clientId}.json`);
+                if (!response.ok) throw new Error('Not found');
+                const data = await response.json();
+
+                // Override meal plans with client data
+                Object.assign(mealPlans, data.mealPlans);
+
+                // Update page title with client name if provided
+                if (data.clientName) {
+                    document.title = `${data.clientName}'s Meal Plan`;
+                }
+
+                return false; // Success, continue with init
+            } catch (error) {
+                showClientError('Your meal plan is being prepared. Check back soon!');
+                return true; // Return true to prevent default init
+            }
+        }
+
+        function showClientError(message) {
+            document.body.innerHTML = `
+                <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#09090b;color:#fafafa;font-family:'Inter',sans-serif;">
+                    <div style="text-align:center;padding:40px;max-width:400px;">
+                        <div style="font-size:3rem;margin-bottom:20px;">🍽️</div>
+                        <h1 style="font-size:1.5rem;margin-bottom:16px;font-weight:700;">Meal Plan</h1>
+                        <p style="color:#a1a1aa;line-height:1.6;">${message}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Meal Plans Data (default - will be overridden for clients)
+        let mealPlans = {
             mon: {
                 breakfast: { name: "Scrambled Eggs on Toast", details: "3 eggs, 2 slices wholemeal toast, bit of butter" },
                 lunch: { name: "Chicken Fillet Roll", details: "From Spar/Centra - no butter/mayo, add salad" },
@@ -3278,7 +3333,12 @@
         });
 
         // Init
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Try to load client-specific data first
+            const hasError = await loadClientData();
+            if (hasError) return; // Stop if error was shown
+
+            // Continue with normal initialization
             loadState();
             loadTheme();
             setupNavigation();
