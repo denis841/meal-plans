@@ -3416,5 +3416,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => {
+                        console.log('Service Worker registered successfully:', reg.scope);
+                        console.log('Offline functionality enabled!');
+                    })
+                    .catch(err => {
+                        console.error('Service Worker registration failed:', err);
+                    });
+            });
+        } else {
+            console.warn('Service Workers are not supported in this browser.');
+        }
+    </script>
 </body>
 </html>
