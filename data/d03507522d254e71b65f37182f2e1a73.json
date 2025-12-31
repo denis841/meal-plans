@@ -1,0 +1,47 @@
+{
+  "clientName": "John",
+  "mealPlans": {
+    "mon": {
+      "breakfast": { "name": "Protein Oatmeal", "details": "Oats, protein powder, banana, peanut butter" },
+      "lunch": { "name": "Chicken & Rice Bowl", "details": "200g chicken breast, 150g rice, mixed greens" },
+      "dinner": { "name": "Salmon & Sweet Potato", "details": "Salmon fillet, roasted sweet potato, broccoli" },
+      "snack": { "name": "Greek Yogurt + Berries", "details": "High protein yogurt with mixed berries" }
+    },
+    "tue": {
+      "breakfast": { "name": "Egg White Omelette", "details": "4 egg whites, spinach, tomatoes, toast" },
+      "lunch": { "name": "Turkey Wrap", "details": "Wholemeal wrap, turkey slices, salad, hummus" },
+      "dinner": { "name": "Lean Beef Stir Fry", "details": "Lean beef strips, mixed veg, soy sauce, noodles" },
+      "snack": { "name": "Protein Shake", "details": "Whey protein with almond milk" }
+    },
+    "wed": {
+      "breakfast": { "name": "Avocado Toast + Eggs", "details": "2 poached eggs on avocado toast" },
+      "lunch": { "name": "Tuna Salad", "details": "Tuna, mixed leaves, cherry tomatoes, olive oil" },
+      "dinner": { "name": "Grilled Chicken Breast", "details": "Chicken breast, quinoa, roasted vegetables" },
+      "snack": { "name": "Cottage Cheese + Fruit", "details": "Low fat cottage cheese with pineapple" }
+    },
+    "thu": {
+      "breakfast": { "name": "Overnight Oats", "details": "Oats, milk, chia seeds, honey, berries" },
+      "lunch": { "name": "Chicken Caesar Salad", "details": "Grilled chicken, romaine, light caesar dressing" },
+      "dinner": { "name": "Fish Tacos", "details": "White fish, corn tortillas, slaw, lime" },
+      "snack": { "name": "Rice Cakes + PB", "details": "2 rice cakes with peanut butter" }
+    },
+    "fri": {
+      "breakfast": { "name": "Scrambled Eggs", "details": "3 whole eggs, toast, grilled tomatoes" },
+      "lunch": { "name": "Leftover Fish Tacos", "details": "Or grab a protein-rich meal deal" },
+      "dinner": { "name": "Steak Night", "details": "Sirloin steak, baked potato, green beans" },
+      "snack": { "name": "Protein Bar", "details": "Your choice - keep it under 200 cals" }
+    },
+    "sat": {
+      "breakfast": { "name": "Protein Pancakes", "details": "Banana, oat, egg pancakes with berries" },
+      "lunch": { "name": "Flexible", "details": "Whatever fits your day - aim for protein" },
+      "dinner": { "name": "Social Dinner", "details": "Enjoy yourself - just don't go crazy" },
+      "snack": { "name": "Optional", "details": "Only if you're genuinely hungry" }
+    },
+    "sun": {
+      "breakfast": { "name": "Big Breakfast", "details": "Eggs, bacon, beans, toast - earned it" },
+      "lunch": { "name": "Sunday Roast", "details": "Roast chicken/beef, veg, small portion of potatoes" },
+      "dinner": { "name": "Light Meal", "details": "Soup or salad - prep for the week ahead" },
+      "snack": { "name": "Meal Prep Time", "details": "Prep chicken/rice for Mon-Wed lunches" }
+    }
+  }
+}
