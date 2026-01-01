@@ -22,16 +22,7 @@
             --accent-green-glow: rgba(16, 185, 129, 0.15);
             --accent-red: #f43f5e;
             --accent-red-glow: rgba(244, 63, 94, 0.15);
-            --accent-yellow: #f59e0b;
-            --accent-yellow-glow: rgba(245, 158, 11, 0.15);
-            --accent-blue: #6366f1;
-            --accent-blue-glow: rgba(99, 102, 241, 0.15);
-            --accent-purple: #a855f7;
-            --accent-purple-glow: rgba(168, 85, 247, 0.15);
-            --accent-orange: #f97316;
-            --accent-orange-glow: rgba(249, 115, 22, 0.15);
             --accent-cyan: #22d3ee;
-            --accent-cyan-glow: rgba(34, 211, 238, 0.15);
             --text-primary: #fafafa;
             --text-secondary: #a1a1aa;
             --text-muted: #71717a;
@@ -57,8 +48,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-dark);
             background-image:
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), transparent),
-                radial-gradient(ellipse 60% 40% at 100% 0%, rgba(99, 102, 241, 0.05), transparent);
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.05), transparent);
             color: var(--text-primary);
             line-height: 1.65;
             min-height: 100vh;
@@ -75,7 +65,7 @@
         /* Header */
         .header {
             text-align: center;
-            padding: 40px 24px 32px;
+            padding: 0 24px 24px;
             margin: 0 0 32px;
             position: relative;
             background: rgba(255, 255, 255, 0.08);
@@ -98,6 +88,15 @@
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
             border-radius: 1px;
+        }
+
+        .header-logo {
+            display: block;
+            margin: -15px auto -20px auto;
+            width: 160px;
+            height: auto;
+            filter: invert(1);
+            opacity: 0.95;
         }
 
         .header h1 {
@@ -342,39 +341,47 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        /* Streak Counter */
-        .streak-container {
-            text-align: center;
-            padding: 36px 24px;
+        /* Streak Counter - Compact */
+        .streak-compact {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
         }
 
-        .streak-number {
-            font-size: 4.5rem;
+        .streak-compact-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .streak-compact-number {
+            font-size: 1.8rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-green), #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1;
-            letter-spacing: -0.03em;
-            text-shadow: 0 0 60px rgba(16, 185, 129, 0.3);
         }
 
-        .streak-label {
-            font-size: 1rem;
+        .streak-compact-label {
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--text-muted);
-            margin-top: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
         }
 
-        .streak-dots {
+        .streak-compact-dots {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 24px;
-            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .streak-compact-dots .streak-dot {
+            width: 26px;
+            height: 26px;
+            font-size: 0.7rem;
         }
 
         .streak-dot {
@@ -400,7 +407,7 @@
         }
 
         .streak-dot.today {
-            border-color: var(--accent-yellow);
+            border-color: var(--accent-green);
             box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
             animation: pulse-today 2s ease-in-out infinite;
         }
@@ -459,7 +466,7 @@
         }
 
         .protein-title { color: var(--accent-red); border-color: var(--accent-red) !important; }
-        .carb-title { color: var(--accent-yellow); border-color: var(--accent-yellow) !important; }
+        .carb-title { color: var(--accent-green); border-color: var(--accent-green) !important; }
         .veg-title { color: var(--accent-green); border-color: var(--accent-green) !important; }
 
         .builder-option {
@@ -619,6 +626,7 @@
             align-items: flex-start;
             gap: 12px;
             padding: 10px 0;
+            font-size: 0.85rem;
         }
 
         .damage-option + .damage-option {
@@ -641,7 +649,7 @@
             box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
         }
         .badge-ok {
-            background: linear-gradient(135deg, var(--accent-yellow), #d97706);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
             color: var(--bg-dark);
             box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
         }
@@ -746,16 +754,16 @@
         .weekly-budget {
             text-align: center;
             padding: 28px 24px;
-            background: rgba(99, 102, 241, 0.12);
+            background: rgba(16, 185, 129, 0.12);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border: 1px solid rgba(99, 102, 241, 0.4);
+            border: 1px solid rgba(16, 185, 129, 0.4);
             border-radius: var(--radius-lg);
             margin-bottom: 24px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                        0 0 60px rgba(99, 102, 241, 0.25),
+                        0 0 60px rgba(16, 185, 129, 0.25),
                         inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
@@ -763,7 +771,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), transparent 60%);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), transparent 60%);
             border-radius: inherit;
             pointer-events: none;
             z-index: 0;
@@ -781,7 +789,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
         }
 
         .weekly-budget-label {
@@ -796,7 +804,7 @@
         .weekly-budget-number {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-blue), #818cf8);
+            background: linear-gradient(135deg, var(--accent-green), #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -842,6 +850,19 @@
             font-size: 1.3rem;
         }
 
+        .weekly-day-status .status-check {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
         /* Daily Meal Plan */
         .day-selector {
             display: flex;
@@ -864,8 +885,8 @@
         }
 
         .day-btn {
-            flex-shrink: 0;
-            padding: 14px 16px;
+            flex: 1;
+            padding: 14px 8px;
             background: transparent;
             border: none;
             border-radius: var(--radius-sm);
@@ -875,6 +896,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             min-height: 44px;
+            text-align: center;
         }
 
         .day-btn:hover {
@@ -883,10 +905,10 @@
         }
 
         .day-btn.active {
-            background: var(--accent-blue);
+            background: var(--accent-green);
             color: white;
             font-weight: 600;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
         }
 
         .meal-item {
@@ -1006,7 +1028,7 @@
         .water-count-number {
             font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-cyan), #67e8f9);
+            background: linear-gradient(135deg, var(--accent-green), #67e8f9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1479,155 +1501,6 @@
             box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
         }
 
-        /* Theme Picker */
-        .theme-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            font-size: 1.2rem;
-            z-index: 100;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-btn:hover {
-            transform: scale(1.1);
-            border-color: var(--accent-green);
-            box-shadow: 0 0 20px var(--accent-green-glow);
-        }
-
-        .theme-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .theme-modal-content {
-            position: relative;
-            background: rgba(16, 185, 129, 0.1);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: var(--radius-xl);
-            padding: 32px 40px;
-            text-align: center;
-            max-width: 360px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                        0 0 60px var(--accent-green-glow),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .theme-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 24px;
-        }
-
-        .theme-colors {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .theme-color {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-
-        .theme-color:hover {
-            transform: scale(1.15);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .theme-color.active {
-            border-color: white;
-            box-shadow: 0 0 20px currentColor;
-        }
-
-        .theme-color.active::after {
-            content: '✓';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .theme-custom {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .custom-color-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .custom-color-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--text-muted);
-        }
-
-        .custom-color-btn input[type="color"] {
-            width: 28px;
-            height: 28px;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            background: transparent;
-            padding: 0;
-        }
-
-        .custom-color-btn input[type="color"]::-webkit-color-swatch-wrapper {
-            padding: 0;
-        }
-
-        .custom-color-btn input[type="color"]::-webkit-color-swatch {
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-        }
-
         /* Expandable Cards */
         .card-header.expandable {
             cursor: pointer;
@@ -1662,14 +1535,10 @@
     </style>
 </head>
 <body>
-    <!-- Theme Button -->
-    <button id="themeBtn" class="theme-btn" title="Change theme color">
-        <span>🎨</span>
-    </button>
-
     <div class="container">
         <div class="header">
-            <h1>Your Meal Plan</h1>
+            <img src="logo.svg" alt="Logo" class="header-logo">
+            <h1 id="headerTitle">Your Meal Plan</h1>
             <p>No decisions. No tracking. Just follow it.</p>
         </div>
 
@@ -1680,16 +1549,28 @@
             <div class="nav-tab" data-section="builder">Build a Meal</div>
             <div class="nav-tab" data-section="eating-out">Eating Out</div>
             <div class="nav-tab" data-section="mindset">Mindset</div>
-            <div class="nav-tab" data-section="progress">Progress</div>
         </div>
 
         <!-- TODAY SECTION -->
         <div class="section active" id="today">
+            <!-- Compact Streak Tracker -->
+            <div class="card">
+                <div class="streak-compact">
+                    <div class="streak-compact-left">
+                        <div class="streak-compact-number" id="streakNumberCompact">0</div>
+                        <div class="streak-compact-label">Day Streak</div>
+                    </div>
+                    <div class="streak-compact-dots" id="streakDotsCompact">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+            </div>
+
             <!-- TODAY'S MEALS - Auto-detected -->
-            <div class="card" style="border-color: var(--accent-blue);">
+            <div class="card" style="border-color: var(--accent-green);">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(59, 130, 246, 0.2);">
-                        <span style="color: var(--accent-blue);">&#127860;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127860;</span>
                     </div>
                     <div>
                         <div class="card-title" id="todayDayName">Today's Meals</div>
@@ -1773,8 +1654,8 @@
             <!-- Water Tracker -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(6, 182, 212, 0.2);">
-                        <span style="color: var(--accent-cyan);">&#128167;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128167;</span>
                     </div>
                     <div>
                         <div class="card-title">Water Tracker</div>
@@ -1793,16 +1674,31 @@
                 </div>
             </div>
 
-            <!-- Quick Stats -->
+            <!-- Supplements -->
             <div class="card">
-                <div class="streak-container">
-                    <div class="streak-number" id="streakNumber">0</div>
-                    <div class="streak-label">Day Streak</div>
-                    <div class="streak-dots" id="streakDots">
-                        <!-- Generated by JS -->
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128138;</span>
                     </div>
-                    <div class="streak-message" id="streakMessage">
-                        Complete today's non-negotiables to start your streak.
+                    <div>
+                        <div class="card-title">Supplements (Optional)</div>
+                        <div class="card-subtitle">Only if you want. Not required.</div>
+                    </div>
+                </div>
+                <div class="supplement-list">
+                    <div class="supplement-item">
+                        <div class="supplement-icon">&#129472;</div>
+                        <div class="supplement-info">
+                            <h4>Whey Protein</h4>
+                            <p>1 scoop daily. Easy way to hit protein target.</p>
+                        </div>
+                    </div>
+                    <div class="supplement-item">
+                        <div class="supplement-icon">&#128170;</div>
+                        <div class="supplement-info">
+                            <h4>Creatine</h4>
+                            <p>5g daily, any time. Helps muscle/strength. Cheap. Works.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1810,22 +1706,22 @@
             <!-- Morning Routine -->
             <div class="card">
                 <div class="card-header expandable">
-                    <div class="card-icon" style="background: rgba(249, 115, 22, 0.2);">
-                        <span style="color: var(--accent-orange);">&#9728;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#9728;</span>
                     </div>
                     <div>
-                        <div class="card-title">Morning Routine (5 mins)</div>
+                        <div class="card-title">Work Morning Routine</div>
                         <div class="card-subtitle">Do this before you leave the house</div>
                     </div>
                 </div>
                 <div class="card-content">
                     <ol style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px;">
-                        <li style="margin-bottom: 10px;"><strong>Wake up</strong> - Fill water bottle, drink some while kettle boils</li>
-                        <li style="margin-bottom: 10px;"><strong>Cook eggs</strong> (scrambled = fastest, 3-4 mins) OR grab protein shake if rushing</li>
-                        <li style="margin-bottom: 10px;"><strong>Pack your bag:</strong> Lunch + afternoon snack (protein bar/banana) + water bottle</li>
-                        <li><strong>Leave</strong> - You're set for the whole day</li>
+                        <li style="margin-bottom: 10px;"><strong>Drink Water</strong></li>
+                        <li style="margin-bottom: 10px;"><strong>Go cook your eggs</strong> (scrambled = fastest, 6-8 mins) or protein shake if rushing</li>
+                        <li style="margin-bottom: 10px;"><strong>Pack your bag</strong> - lunch + afternoon snack (protein bar/banana) + water bottle</li>
+                        <li><strong>You're ready for work</strong></li>
                     </ol>
-                    <p style="margin-top: 15px; padding: 12px; background: rgba(249, 115, 22, 0.1); border-radius: 8px; font-size: 0.85rem; color: var(--accent-orange);">
+                    <p style="margin-top: 15px; padding: 12px; background: var(--accent-green-glow); border-radius: 8px; font-size: 0.85rem; color: var(--accent-green);">
                         <strong>No time for eggs?</strong> Grab a protein shake + banana. Still counts as breakfast.
                     </p>
                 </div>
@@ -1855,29 +1751,70 @@
 
         <!-- MEALS SECTION -->
         <div class="section" id="meals">
+            <!-- Breakfast Options -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(59, 130, 246, 0.2);">
-                        <span style="color: var(--accent-blue);">&#128197;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127859;</span>
                     </div>
                     <div>
-                        <div class="card-title">Weekly Meal Plans</div>
-                        <div class="card-subtitle">Different meals each day. No boredom. No thinking.</div>
+                        <div class="card-title">Breakfast Options</div>
+                        <div class="card-subtitle">Three choices. Pick one. No overthinking.</div>
                     </div>
                 </div>
 
-                <div class="day-selector" id="daySelector">
-                    <div class="day-btn active" data-day="mon">Mon</div>
-                    <div class="day-btn" data-day="tue">Tue</div>
-                    <div class="day-btn" data-day="wed">Wed</div>
-                    <div class="day-btn" data-day="thu">Thu</div>
-                    <div class="day-btn" data-day="fri">Fri</div>
-                    <div class="day-btn" data-day="sat">Sat</div>
-                    <div class="day-btn" data-day="sun">Sun</div>
+                <div style="display: grid; gap: 15px;">
+                    <!-- Option 1: EGGS -->
+                    <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid var(--accent-green);">
+                        <h4 style="color: var(--accent-green); margin-bottom: 10px;">OPTION 1: EGGS (Minimum 4x per week)</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">The foundation of your breakfast routine.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                            <span style="padding: 6px 10px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.8rem;">Scrambled</span>
+                            <span style="padding: 6px 10px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.8rem;">Fried</span>
+                            <span style="padding: 6px 10px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.8rem;">Poached</span>
+                            <span style="padding: 6px 10px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.8rem;">Omelette</span>
+                            <span style="padding: 6px 10px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.8rem;">Boiled</span>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;"><strong>Pair with:</strong> Toast, bacon, mushrooms, tomatoes, or nothing at all.</p>
+                    </div>
+
+                    <!-- Option 2: OATS -->
+                    <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid var(--accent-yellow);">
+                        <h4 style="color: var(--accent-yellow); margin-bottom: 10px;">OPTION 2: OATS (Maximum 2x per week alone)</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Good but needs protein to count.</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;"><strong>Must pair with:</strong> Protein shake, Greek yogurt, or eggs on the side. Oats alone = not enough protein.</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 8px;"><strong>Add fruit:</strong> Banana, berries, or apple for energy.</p>
+                    </div>
+
+                    <!-- Option 3: FULL IRISH -->
+                    <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid var(--accent-green);">
+                        <h4 style="color: var(--accent-green); margin-bottom: 10px;">OPTION 3: FULL IRISH</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px;">Special occasion or weekend treat. Keep protein high, watch the carbs.</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;"><strong>Focus on:</strong> Eggs, bacon, sausages. Go easy on the toast and beans.</p>
+                    </div>
                 </div>
 
-                <div id="mealPlanContent">
-                    <!-- Generated by JS -->
+                <!-- Why Eggs Are King -->
+                <div style="margin-top: 20px; padding: 15px; background: var(--accent-green-glow); border-radius: 8px;">
+                    <h4 style="color: var(--accent-green); margin-bottom: 10px;">Why Eggs Are King</h4>
+                    <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 18px; margin: 0;">
+                        <li style="margin-bottom: 6px;">High protein (6-7g per egg)</li>
+                        <li style="margin-bottom: 6px;">Keeps you full until lunch</li>
+                        <li style="margin-bottom: 6px;">Takes 5 minutes to cook</li>
+                        <li style="margin-bottom: 6px;">Cheap and always available</li>
+                        <li>Versatile - never gets boring</li>
+                    </ul>
+                </div>
+
+                <!-- Why Oats Work -->
+                <div style="margin-top: 15px; padding: 15px; background: rgba(255,193,7,0.1); border-radius: 8px;">
+                    <h4 style="color: var(--accent-yellow); margin-bottom: 10px;">Why Oats Work (When Done Right)</h4>
+                    <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 18px; margin: 0;">
+                        <li style="margin-bottom: 6px;">Slow-release energy - no mid-morning crash</li>
+                        <li style="margin-bottom: 6px;">Fiber keeps digestion moving</li>
+                        <li style="margin-bottom: 6px;">Easy to prep the night before</li>
+                        <li>But MUST add protein source or you'll be hungry by 10am</li>
+                    </ul>
                 </div>
             </div>
 
@@ -1886,11 +1823,22 @@
                 <div class="truth-bomb-cta">Done. See above. Follow it.</div>
             </div>
 
+            <!-- Sauce Warning -->
+            <div style="padding: 16px; background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05)); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; margin-bottom: 15px;">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span style="font-size: 1.5rem;">&#9888;</span>
+                    <div>
+                        <p style="color: var(--accent-red); font-weight: 700; margin-bottom: 6px;">SAUCE WARNING</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Keep sauces LOW CALORIE. You can lose 200 calories just from sauce in one meal. Mayo, ranch, creamy dressings - they add up fast. Stick to hot sauce, mustard, or light drizzles.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Housemates cooking -->
-            <div class="card" style="border-color: var(--accent-purple);">
+            <div class="card" style="border-color: var(--accent-green);">
                 <div class="card-header expandable">
-                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
-                        <span style="color: var(--accent-purple);">&#127968;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127968;</span>
                     </div>
                     <div>
                         <div class="card-title">When Housemates Cook</div>
@@ -1908,7 +1856,7 @@
                             <li style="margin-bottom: 8px;"><strong>Drink:</strong> Water or diet drink. Not a beer or Coke (unless it's a special occasion).</li>
                         </ol>
 
-                        <div style="padding: 15px; background: rgba(168, 85, 247, 0.1); border-radius: 8px; margin-top: 15px;">
+                        <div style="padding: 15px; background: var(--accent-green-glow); border-radius: 8px; margin-top: 15px;">
                             <p style="margin-bottom: 10px;"><strong>Common housemate meals:</strong></p>
                             <p style="margin-bottom: 8px;">&#127837; <strong>Pasta bolognese:</strong> Have one bowl, skip the garlic bread</p>
                             <p style="margin-bottom: 8px;">&#127835; <strong>Curry & rice:</strong> Normal portion, skip the naan</p>
@@ -1927,8 +1875,8 @@
             <!-- Afternoon Snack -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(249, 115, 22, 0.2);">
-                        <span style="color: var(--accent-orange);">&#127852;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127852;</span>
                     </div>
                     <div>
                         <div class="card-title">Your 3pm Snack (Non-Negotiable)</div>
@@ -1951,61 +1899,17 @@
                             <strong style="color: var(--accent-green);">Option 4:</strong> Greek yogurt pot (grab from Spar in the morning if you forgot)
                         </div>
                     </div>
-                    <p style="margin-top: 15px; padding: 12px; background: rgba(249, 115, 22, 0.1); border-radius: 8px;">
+                    <p style="margin-top: 15px; padding: 12px; background: var(--accent-green-glow); border-radius: 8px;">
                         <strong>The system:</strong> Buy a box of protein bars on Sunday. Put them by your keys. Grab one as you leave. Done.
                     </p>
-                </div>
-            </div>
-
-            <!-- Weekend Survival Guide -->
-            <div class="card" style="border-color: var(--accent-yellow);">
-                <div class="card-header expandable">
-                    <div class="card-icon" style="background: rgba(234, 179, 8, 0.2);">
-                        <span style="color: var(--accent-yellow);">&#127881;</span>
-                    </div>
-                    <div>
-                        <div class="card-title">Weekend Survival Guide</div>
-                        <div class="card-subtitle">Friday-Sunday when everything goes to shit.</div>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div style="color: var(--text-secondary); font-size: 0.9rem;">
-                    <p style="margin-bottom: 15px;"><strong>&#128260; FRIDAY NIGHT (I earned it):</strong></p>
-                    <ul style="padding-left: 20px; margin-bottom: 20px;">
-                        <li>Going out with the lads? Check Eating Out tab for damage control</li>
-                        <li>Ordering in? Pick the BEST option from damage control, not "fuck it"</li>
-                        <li>Drink water between beers (1 pint = 200 calories you can't see)</li>
-                        <li><strong>Still tick your morning checkboxes.</strong> Breakfast/lunch still happened.</li>
-                    </ul>
-
-                    <p style="margin-bottom: 15px;"><strong>&#128564; SATURDAY (sleep til noon):</strong></p>
-                    <ul style="padding-left: 20px; margin-bottom: 20px;">
-                        <li>Wake up late? Skip breakfast, start with a big brunch/lunch</li>
-                        <li>Hungover? Eggs + toast + water = recovery meal (still counts)</li>
-                        <li>Social lunch? Use the damage control rules</li>
-                        <li>Out again Saturday night? Same as Friday - damage control, not perfection</li>
-                    </ul>
-
-                    <p style="margin-bottom: 15px;"><strong>&#127968; SUNDAY (family stuff):</strong></p>
-                    <ul style="padding-left: 20px; margin-bottom: 15px;">
-                        <li>Roast dinner at family's? Load up on meat + veg, go easy on roast potatoes</li>
-                        <li>Lazy day at home? Follow the Sunday meal plan</li>
-                        <li><strong>Sunday evening:</strong> Prep chicken/protein for Mon-Tue if you can (30 mins)</li>
-                    </ul>
-
-                    <div style="padding: 15px; background: rgba(234, 179, 8, 0.1); border-radius: 8px;">
-                        <p style="margin-bottom: 8px;"><strong>Weekend Goal:</strong> Don't be perfect. Just don't go nuclear.</p>
-                        <p>If you hit 2-3 checkboxes on Sat/Sun instead of 4+, that's FINE. The week is won Monday-Friday. Weekends are damage limitation.</p>
-                    </div>
-                    </div>
                 </div>
             </div>
 
             <!-- Edge Cases FAQ -->
             <div class="card">
                 <div class="card-header expandable">
-                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
-                        <span style="color: var(--accent-purple);">&#10067;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#10067;</span>
                     </div>
                     <div>
                         <div class="card-title">Edge Cases (When Shit Gets Weird)</div>
@@ -2029,15 +1933,6 @@
                         <p><strong style="color: var(--accent-green);">A:</strong> Yes. That's 3 boxes across 2 days. Not ideal, but NOT a fail. You're still in the game. Monday is a fresh start and you haven't "ruined the week."</p>
                     </div>
 
-                    <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px; margin-bottom: 15px;">
-                        <p style="margin-bottom: 8px;"><strong style="color: var(--text-primary);">Q: What does "one extra scoop" look like for different meals?</strong></p>
-                        <p><strong style="color: var(--accent-green);">A:</strong><br>
-                        - Chicken + rice = one extra serving spoon of rice<br>
-                        - Pasta = one extra forkful (like 50g more, not half a plate)<br>
-                        - Housemate meal = stick to one serving, maybe slightly bigger than usual<br>
-                        - Spar chicken wrap = it's already enough, just have your shake after gym</p>
-                    </div>
-
                     <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px;">
                         <p style="margin-bottom: 8px;"><strong style="color: var(--text-primary);">Q: What if NOTHING on this page applies to my situation?</strong></p>
                         <p><strong style="color: var(--accent-green);">A:</strong> Default rule: Pick something with protein in it, skip the extras, drink water. You're on-plan. Move on.</p>
@@ -2049,9 +1944,10 @@
 
         <!-- BUILDER SECTION -->
         <div class="section" id="builder">
+            <!-- The Staple Builder -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
                         <span style="color: var(--accent-green);">&#127860;</span>
                     </div>
                     <div>
@@ -2093,10 +1989,223 @@
                 </div>
             </div>
 
+            <!-- Portion Guidelines -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(249, 115, 22, 0.2);">
-                        <span style="color: var(--accent-orange);">&#128293;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#9878;</span>
+                    </div>
+                    <div>
+                        <div class="card-title">Portion Guidelines</div>
+                        <div class="card-subtitle">For lunch and dinner. Straight to the basics.</div>
+                    </div>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border);">
+                                <th style="padding: 12px; text-align: left; color: var(--text-primary);">MACRO</th>
+                                <th style="padding: 12px; text-align: center; color: var(--accent-green);">AMOUNT</th>
+                                <th style="padding: 12px; text-align: left; color: var(--text-secondary);">MEANING</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 12px; font-weight: 600;">MEAT</td>
+                                <td style="padding: 12px; text-align: center; color: var(--accent-green); font-weight: 600;">MINIMUM 125g</td>
+                                <td style="padding: 12px; color: var(--text-secondary);">You can have MORE</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 12px; font-weight: 600;">CARBS</td>
+                                <td style="padding: 12px; text-align: center; color: var(--accent-red); font-weight: 600;">MAXIMUM 150g</td>
+                                <td style="padding: 12px; color: var(--text-secondary);">You can NOT go over</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; font-weight: 600;">VEGETABLES</td>
+                                <td style="padding: 12px; text-align: center; color: var(--accent-green); font-weight: 600;">MINIMUM 50g daily</td>
+                                <td style="padding: 12px; color: var(--text-secondary);">Have as much as you like</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.85rem;">
+                    If you struggle with hitting the carb limit, have more meat then. Don't rely on carbs — that's a bad habit.
+                </p>
+            </div>
+
+            <!-- Protein Content Table -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127830;</span>
+                    </div>
+                    <div>
+                        <div class="card-title">Protein Content Per 125g of Meat</div>
+                        <div class="card-subtitle">Know what you're eating.</div>
+                    </div>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border);">
+                                <th style="padding: 12px; text-align: left; color: var(--accent-green);">MEAT TYPE</th>
+                                <th style="padding: 12px; text-align: right; color: var(--accent-green);">PROTEIN (per 100g)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 12px; color: var(--text-primary);">Chicken Breast</td>
+                                <td style="padding: 12px; text-align: right; font-weight: 600;">~39g</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 12px; color: var(--text-primary);">Lean Beef</td>
+                                <td style="padding: 12px; text-align: right; font-weight: 600;">~33g</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 12px; color: var(--text-primary);">Pork Loin</td>
+                                <td style="padding: 12px; text-align: right; font-weight: 600;">~32g</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-subtle);">
+                                <td style="padding: 12px; color: var(--text-primary);">Ground Beef (80/20)</td>
+                                <td style="padding: 12px; text-align: right; font-weight: 600;">~25g</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; color: var(--text-primary);">Salmon</td>
+                                <td style="padding: 12px; text-align: right; font-weight: 600;">~25g</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 15px; padding: 12px; background: var(--accent-green-glow); border-radius: 8px; color: var(--text-secondary); font-size: 0.85rem;">
+                    <strong style="color: var(--accent-green);">Keep 80% of your meat as chicken or lean beef.</strong> Look at the table — protein drops quickly after those options.
+                </p>
+                <p style="margin-top: 12px; color: var(--text-muted); font-size: 0.85rem;">
+                    <strong>Egg Protein Reference:</strong> Whole egg ~6-7g protein | Egg white only ~3.5-4g protein
+                </p>
+            </div>
+
+            <!-- The Daily Protein Math -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128290;</span>
+                    </div>
+                    <div>
+                        <div class="card-title">The Daily Protein Math</div>
+                        <div class="card-subtitle">Proof that you'll hit your protein. Every day.</div>
+                    </div>
+                </div>
+                <div style="padding: 16px; background: var(--bg-card-hover); border-radius: 8px; margin-bottom: 15px;">
+                    <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.9rem;"><strong style="color: var(--text-primary);">Worst case daily protein calculation:</strong></p>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+                        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
+                            <span>125g Chicken Breast</span>
+                            <span style="color: var(--accent-green); font-weight: 600;">~39g protein</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
+                            <span>3 Whole Eggs + 2 Whites</span>
+                            <span style="color: var(--accent-green); font-weight: 600;">~25g protein</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
+                            <span>1 Protein Shake</span>
+                            <span style="color: var(--accent-green); font-weight: 600;">~25g protein</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px 0; background: var(--accent-green-glow); border-radius: 6px; margin-top: 8px; padding-left: 10px; padding-right: 10px;">
+                            <span style="font-weight: 700; color: var(--text-primary);">MINIMUM TOTAL</span>
+                            <span style="color: var(--accent-green); font-weight: 700;">~89g protein</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    <strong style="color: var(--accent-green);">Realistically you'll hit 130-150g.</strong> This is the absolute minimum with small portions. Most days you'll have more meat, maybe a second shake, or extra eggs. You're covered.
+                </p>
+            </div>
+
+            <!-- Your Sources - Full Lists -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128221;</span>
+                    </div>
+                    <div>
+                        <div class="card-title">Your Sources</div>
+                        <div class="card-subtitle">The complete list of what you can eat.</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; gap: 20px;">
+                    <!-- Protein Sources -->
+                    <div>
+                        <h4 style="color: var(--accent-green); margin-bottom: 10px; font-size: 0.9rem;">PROTEIN SOURCES</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Chicken</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Beef</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Fish</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Pork</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Lamb</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Turkey</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Eggs</span>
+                        </div>
+                    </div>
+
+                    <!-- Carb Sources -->
+                    <div>
+                        <h4 style="color: var(--accent-yellow); margin-bottom: 10px; font-size: 0.9rem;">CARB SOURCES</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Rice</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Pasta</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Potatoes</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Sweet Potato</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Bread</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Oats</span>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.8rem; padding: 8px 12px; background: rgba(255,193,7,0.1); border-radius: 6px;">
+                            <strong style="color: var(--accent-yellow);">Best choices:</strong> Basmati rice, baked potatoes, sweet potato. These digest slower and keep you fuller.
+                        </p>
+                    </div>
+
+                    <!-- Vegetable Sources -->
+                    <div>
+                        <h4 style="color: #22c55e; margin-bottom: 10px; font-size: 0.9rem;">VEGETABLE SOURCES</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Broccoli</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Spinach</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Peppers</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Asparagus</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Brussels Sprouts</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Lettuce</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Cabbage</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Kale</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Courgettes</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Tomatoes</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Cucumbers</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Green Beans</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Cauliflower</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Carrots</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Mushrooms</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Onions</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Celery</span>
+                            <span style="padding: 6px 12px; background: var(--bg-card-hover); border-radius: 6px; font-size: 0.85rem;">Beetroot</span>
+                        </div>
+                    </div>
+
+                    <!-- Equipment Tips -->
+                    <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid var(--accent-green);">
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px; font-size: 0.9rem;">⚡ EQUIPMENT THAT MAKES LIFE EASIER</h4>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 18px; margin: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Rice Cooker (~€30):</strong> Set it and forget it. Perfect rice every time without watching a pot.</li>
+                            <li style="margin-bottom: 8px;"><strong>Air Fryer:</strong> Crispy chicken without deep frying. Healthier and faster than an oven.</li>
+                            <li style="margin-bottom: 8px;"><strong>Food Scale:</strong> The only way to know what you're actually eating. Essential.</li>
+                            <li><strong>Meal Prep Containers:</strong> Get ones with compartments. Makes portion control automatic.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128293;</span>
                     </div>
                     <div>
                         <div class="card-title">Cooking? Keep it Stupid Simple</div>
@@ -2118,11 +2227,47 @@
                 </div>
             </div>
 
+            <!-- Meal Construction Example -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127869;</span>
+                    </div>
+                    <div>
+                        <div class="card-title">Real Example: Beef Mince & Pasta</div>
+                        <div class="card-subtitle">How to build a meal you can actually track.</div>
+                    </div>
+                </div>
+                <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                    <p style="margin-bottom: 15px;"><strong style="color: var(--text-primary);">The 4-Step Method:</strong></p>
+                    <ol style="padding-left: 20px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px;">
+                            <strong>Cook meat separately</strong> — 150g beef mince in a pan
+                        </li>
+                        <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px;">
+                            <strong>Cook pasta separately</strong> — 120g dry pasta, boiled
+                        </li>
+                        <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px;">
+                            <strong>Add veg</strong> — 60g peppers or spinach
+                        </li>
+                        <li style="padding: 10px; background: var(--accent-green-glow); border-radius: 6px;">
+                            <strong style="color: var(--accent-green);">Now you know EXACTLY what you're eating</strong>
+                        </li>
+                    </ol>
+                    <p style="padding: 12px; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid var(--accent-green);">
+                        <strong style="color: var(--accent-green);">Why separate?</strong> When you mix everything in one pot, you're guessing. When you weigh and cook separately, you have complete control. That's the difference between progress and plateaus.
+                    </p>
+                </div>
+                <p style="margin-top: 15px; color: var(--accent-green); font-weight: 600; font-size: 0.9rem;">
+                    "Preparation is key to winning at your diet."
+                </p>
+            </div>
+
             <!-- Protein Shake -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
-                        <span style="color: var(--accent-purple);">&#129380;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#129380;</span>
                     </div>
                     <div>
                         <div class="card-title">Your Daily Protein Shake</div>
@@ -2136,7 +2281,7 @@
                     <p style="margin-bottom: 12px;"><strong>Time required:</strong> 30 seconds total.</p>
                     <p style="color: var(--accent-green);"><strong>Protein added:</strong> ~25g per scoop. That's like eating a chicken breast without cooking.</p>
                 </div>
-                <p style="margin-top: 15px; padding: 12px; background: rgba(168, 85, 247, 0.1); border-radius: 8px; font-size: 0.85rem;">
+                <p style="margin-top: 15px; padding: 12px; background: var(--accent-green-glow); border-radius: 8px; font-size: 0.85rem;">
                     <strong>Don't have any?</strong> Go buy a tub this weekend. Put it next to the kettle. That's your system.
                 </p>
             </div>
@@ -2144,8 +2289,8 @@
             <!-- Gym Day vs Rest Day -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(59, 130, 246, 0.2);">
-                        <span style="color: var(--accent-blue);">&#127947;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127947;</span>
                     </div>
                     <div>
                         <div class="card-title">Gym Day vs Rest Day</div>
@@ -2173,34 +2318,6 @@
                 </div>
             </div>
 
-            <!-- Getting Veg In -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">
-                        <span style="color: var(--accent-green);">&#129382;</span>
-                    </div>
-                    <div>
-                        <div class="card-title">How to Actually Get Veg In</div>
-                        <div class="card-subtitle">When you're eating grab-and-go all day</div>
-                    </div>
-                </div>
-                <div style="color: var(--text-secondary); font-size: 0.9rem;">
-                    <p style="margin-bottom: 12px;"><strong>At Spar/Centra:</strong></p>
-                    <ul style="padding-left: 20px; margin-bottom: 15px;">
-                        <li>Grab a side salad pot (usually near the sandwiches)</li>
-                        <li>Buy a banana or apple - fruit counts as "close enough"</li>
-                    </ul>
-                    <p style="margin-bottom: 12px;"><strong>At home:</strong></p>
-                    <ul style="padding-left: 20px; margin-bottom: 15px;">
-                        <li>Frozen veg = lifesaver. Microwave bag for 3 mins. Done.</li>
-                        <li>Pre-washed salad bags = zero prep</li>
-                        <li>Cherry tomatoes = grab and eat, no cooking</li>
-                    </ul>
-                    <p style="padding: 12px; background: rgba(34, 197, 94, 0.1); border-radius: 8px;">
-                        <strong>Minimum standard:</strong> If you can see something green on your plate at dinner, you've hit the veg checkbox.
-                    </p>
-                </div>
-            </div>
         </div>
 
         <!-- EATING OUT SECTION -->
@@ -2208,8 +2325,8 @@
             <!-- 6 Golden Principles -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(234, 179, 8, 0.2);">
-                        <span style="color: var(--accent-yellow);">&#128081;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128081;</span>
                     </div>
                     <div>
                         <div class="card-title">The 6 Golden Principles</div>
@@ -2219,7 +2336,7 @@
 
                 <div class="principle">
                     <div class="principle-header">
-                        <div class="principle-number" style="background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan);">1</div>
+                        <div class="principle-number" style="background: var(--accent-green-glow); color: var(--accent-green);">1</div>
                         <div class="principle-title">The "Protein Anchor"</div>
                     </div>
                     <div class="principle-desc">
@@ -2229,7 +2346,7 @@
 
                 <div class="principle">
                     <div class="principle-header">
-                        <div class="principle-number" style="background: rgba(34, 197, 94, 0.2); color: var(--accent-green);">2</div>
+                        <div class="principle-number" style="background: var(--accent-green-glow); color: var(--accent-green);">2</div>
                         <div class="principle-title">The "Adjective Game"</div>
                     </div>
                     <div class="principle-desc">
@@ -2240,7 +2357,7 @@
 
                 <div class="principle">
                     <div class="principle-header">
-                        <div class="principle-number" style="background: rgba(239, 68, 68, 0.2); color: var(--accent-red);">3</div>
+                        <div class="principle-number" style="background: var(--accent-green-glow); color: var(--accent-green);">3</div>
                         <div class="principle-title">Sauce Sovereignty</div>
                     </div>
                     <div class="principle-desc">
@@ -2248,9 +2365,16 @@
                     </div>
                 </div>
 
+                <!-- Sauce Warning Callout -->
+                <div style="padding: 14px; background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05)); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; margin: 10px 0;">
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                        <span style="color: var(--accent-red); font-weight: 700;">&#9888; SAUCE MATH:</span> You can lose 200 calories just from sauce in one meal. That's a 20-minute jog. For sauce. Not worth it.
+                    </p>
+                </div>
+
                 <div class="principle">
                     <div class="principle-header">
-                        <div class="principle-number" style="background: rgba(249, 115, 22, 0.2); color: var(--accent-orange);">4</div>
+                        <div class="principle-number" style="background: var(--accent-green-glow); color: var(--accent-green);">4</div>
                         <div class="principle-title">One Carb Source Law</div>
                     </div>
                     <div class="principle-desc">
@@ -2260,7 +2384,7 @@
 
                 <div class="principle">
                     <div class="principle-header">
-                        <div class="principle-number" style="background: rgba(168, 85, 247, 0.2); color: var(--accent-purple);">5</div>
+                        <div class="principle-number" style="background: var(--accent-green-glow); color: var(--accent-green);">5</div>
                         <div class="principle-title">The "Beige Alert"</div>
                     </div>
                     <div class="principle-desc">
@@ -2270,7 +2394,7 @@
 
                 <div class="principle">
                     <div class="principle-header">
-                        <div class="principle-number" style="background: rgba(59, 130, 246, 0.2); color: var(--accent-blue);">6</div>
+                        <div class="principle-number" style="background: var(--accent-green-glow); color: var(--accent-green);">6</div>
                         <div class="principle-title">Liquid Sniper Defense</div>
                     </div>
                     <div class="principle-desc">
@@ -2296,15 +2420,15 @@
                     <div class="damage-options">
                         <div class="damage-option">
                             <span class="damage-badge badge-best">BEST</span>
-                            <span>Grilled chicken wrap/burger (no mayo), diet drink</span>
+                            <span>Chicken selects box (9 or 20 piece) - pure protein, no bun, water</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-ok">OK</span>
-                            <span>Regular burger (skip the large meal), water</span>
+                            <span>Grilled chicken burger (bun = your one carb), no fries, diet drink</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-avoid">SKIP</span>
-                            <span>Large meal, milkshake, extra fries, McFlurry</span>
+                            <span>Large meal (bun + fries = two carbs), milkshake, McFlurry</span>
                         </div>
                     </div>
                 </div>
@@ -2314,15 +2438,15 @@
                     <div class="damage-options">
                         <div class="damage-option">
                             <span class="damage-badge badge-best">BEST</span>
-                            <span>Thin crust, meat toppings, 2-3 slices max, side salad</span>
+                            <span>Chicken wings + 1-2 thin slices, side salad (protein first, add green)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-ok">OK</span>
-                            <span>Regular pizza, stick to half, no garlic bread</span>
+                            <span>Thin crust, meat toppings, 3 slices max (base = your one carb)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-avoid">SKIP</span>
-                            <span>Stuffed crust, extra cheese, garlic bread, whole pizza</span>
+                            <span>Stuffed crust, garlic bread (base + bread = two carbs), whole pizza</span>
                         </div>
                     </div>
                 </div>
@@ -2332,15 +2456,15 @@
                     <div class="damage-options">
                         <div class="damage-option">
                             <span class="damage-badge badge-best">BEST</span>
-                            <span>Chicken/beef with vegetables, steamed rice (small portion)</span>
+                            <span>Salt & pepper chicken (not battered), small rice OR skip rice</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-ok">OK</span>
-                            <span>Chicken curry with rice OR chips (not both)</span>
+                            <span>Chicken/beef curry, rice OR chips (pick one carb, not both)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-avoid">SKIP</span>
-                            <span>Sweet & sour (battered), spring rolls, prawn crackers</span>
+                            <span>Sweet & sour (battered), rice + noodles (two carbs), spring rolls</span>
                         </div>
                     </div>
                 </div>
@@ -2350,15 +2474,15 @@
                     <div class="damage-options">
                         <div class="damage-option">
                             <span class="damage-badge badge-best">BEST</span>
-                            <span>Grilled chicken breast & chips, skip the curry sauce</span>
+                            <span>Grilled chicken breast, small chips OR no chips (protein anchor)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-ok">OK</span>
-                            <span>1 piece fish & chips (not battered, if available)</span>
+                            <span>Fish (ask for grilled if possible), small chips, no extras</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-avoid">SKIP</span>
-                            <span>Battered sausage, onion rings, curry cheese chips</span>
+                            <span>Battered everything, curry cheese chips, onion rings (beige plate)</span>
                         </div>
                     </div>
                 </div>
@@ -2368,15 +2492,15 @@
                     <div class="damage-options">
                         <div class="damage-option">
                             <span class="damage-badge badge-best">BEST</span>
-                            <span>Chicken shish with salad in pitta, no mayo</span>
+                            <span>Chicken shish box with salad, no pitta (pure protein + veg)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-ok">OK</span>
-                            <span>Doner wrap with salad, light on sauce</span>
+                            <span>Chicken/doner wrap with salad, sauce on side (pitta = your one carb)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-avoid">SKIP</span>
-                            <span>Doner & chips, garlic mayo everything, cheesy chips</span>
+                            <span>Doner & chips (wrap + chips = two carbs), garlic mayo drowned</span>
                         </div>
                     </div>
                 </div>
@@ -2386,15 +2510,15 @@
                     <div class="damage-options">
                         <div class="damage-option">
                             <span class="damage-badge badge-best">BEST</span>
-                            <span>Steak/chicken with veg, swap chips for salad if possible</span>
+                            <span>Steak or chicken with veg, swap chips for salad (protein + green)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-ok">OK</span>
-                            <span>Burger (eat the patty, skip half the bun), 1-2 pints max</span>
+                            <span>Burger with salad, skip chips (bun = your one carb), 1-2 pints max</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-avoid">SKIP</span>
-                            <span>Fish & chips, curry, sticky toffee pudding, 5+ pints</span>
+                            <span>Battered fish & chips, desserts, 5+ pints (liquid calories)</span>
                         </div>
                     </div>
                 </div>
@@ -2404,15 +2528,15 @@
                     <div class="damage-options">
                         <div class="damage-option">
                             <span class="damage-badge badge-best">BEST</span>
-                            <span>Chicken fillet roll (no butter/mayo), protein bar, water</span>
+                            <span>Chicken breast on its own, protein bar, water (pure protein)</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-ok">OK</span>
-                            <span>Pre-made salad with chicken, sandwich with protein</span>
+                            <span>Chicken roll (no butter/mayo), roll = your one carb, diet drink</span>
                         </div>
                         <div class="damage-option">
                             <span class="damage-badge badge-avoid">SKIP</span>
-                            <span>Sausage rolls, pastries, energy drinks, crisps</span>
+                            <span>Sausage rolls, pastries, energy drinks (liquid calories), crisps</span>
                         </div>
                     </div>
                 </div>
@@ -2421,8 +2545,8 @@
             <!-- Social Situations -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
-                        <span style="color: var(--accent-purple);">&#128101;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128101;</span>
                     </div>
                     <div>
                         <div class="card-title">When the Lads Want Takeaway</div>
@@ -2446,6 +2570,89 @@
 
         <!-- MINDSET SECTION -->
         <div class="section" id="mindset">
+            <!-- Meal Prep Philosophy -->
+            <div class="card" style="border-color: var(--accent-green);">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128293;</span>
+                    </div>
+                    <div>
+                        <div class="card-title">The Meal Prep Philosophy</div>
+                        <div class="card-subtitle">This is the non-negotiable foundation.</div>
+                    </div>
+                </div>
+
+                <div style="padding: 20px; background: var(--accent-green-glow); border-radius: 10px; margin-bottom: 20px; text-align: center;">
+                    <p style="color: var(--accent-green); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">
+                        "YOU NEED SOMETHING PACKED. THIS IS NOT NEGOTIABLE."
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">
+                        When your food is ready, decisions disappear. No willpower needed.
+                    </p>
+                </div>
+
+                <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                    <p style="margin-bottom: 15px;"><strong style="color: var(--text-primary);">The 3-Meal Method:</strong></p>
+                    <p style="margin-bottom: 12px; padding: 12px; background: var(--bg-card-hover); border-radius: 8px;">
+                        Prepare 3 meals instead of 1. You're already in the kitchen. Bang one meal. Bang two. Bang three. And you're done.
+                    </p>
+
+                    <div style="padding: 15px; background: var(--bg-card-hover); border-radius: 8px; margin-bottom: 15px;">
+                        <p style="color: var(--accent-green); font-weight: 600; margin-bottom: 8px;">The Math That Matters:</p>
+                        <p style="margin-bottom: 8px;"><strong>20 mins/day saved</strong> on food decisions and rushed cooking</p>
+                        <p style="margin-bottom: 8px;">= <strong>121 hours/year</strong></p>
+                        <p style="color: var(--accent-green); font-weight: 600;">= 5 full days back in your life</p>
+                    </div>
+
+                    <p style="padding: 12px; background: var(--accent-green-glow); border-radius: 8px; font-style: italic;">
+                        "Do you know how good it feels to come downstairs knowing your food is ready? That's freedom."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Preparation Tips -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128221;</span>
+                    </div>
+                    <div>
+                        <div class="card-title">Preparation Tips</div>
+                        <div class="card-subtitle">The system that makes this sustainable.</div>
+                    </div>
+                </div>
+
+                <ul style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px;">
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Prepare meals the day before</strong> — morning you will thank night you
+                    </li>
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Prepare 3-4 meals minimum</strong> when cooking — same effort, triple output
+                    </li>
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Cook ingredients separately</strong> — easy to weigh, easy to track
+                    </li>
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Get containers with compartments</strong> — portion control becomes automatic
+                    </li>
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Pick one main prep day</strong> — Sunday is ideal, but pick what works for you
+                    </li>
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Keep it simple</strong> — Meat, carbs, veg. Repeat. Don't overcomplicate.
+                    </li>
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Label your containers</strong> — date and contents, so you grab and go
+                    </li>
+                    <li style="margin-bottom: 12px; padding: 10px; background: var(--bg-card-hover); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong>Get a food scale</strong> — the only way to know what you're eating
+                    </li>
+                    <li style="padding: 10px; background: var(--accent-green-glow); border-radius: 6px; list-style: none; margin-left: -20px; padding-left: 15px; border-left: 3px solid var(--accent-green);">
+                        <strong style="color: var(--accent-green);">Keep emergency protein in fridge</strong> — pre-cooked chicken, eggs, Greek yogurt
+                    </li>
+                </ul>
+            </div>
+
             <!-- Flat Tire Rule -->
             <div class="flat-tire-box">
                 <div class="flat-tire-title">
@@ -2464,8 +2671,8 @@
             <!-- Amateur vs Pro -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
-                        <span style="color: var(--accent-purple);">&#129504;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#129504;</span>
                     </div>
                     <div>
                         <div class="card-title">Amateur vs Pro Mindset</div>
@@ -2497,8 +2704,8 @@
             <!-- The Cardio Buffer -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(59, 130, 246, 0.2);">
-                        <span style="color: var(--accent-blue);">&#127939;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#127939;</span>
                     </div>
                     <div>
                         <div class="card-title">The Cardio Buffer</div>
@@ -2507,10 +2714,10 @@
                 </div>
                 <div style="color: var(--text-secondary); font-size: 0.95rem;">
                     <p style="margin-bottom: 15px;">
-                        <strong style="color: var(--accent-green);">Can do cardio?</strong> Great. A 30min jog balances the books.
+                        <strong style="color: var(--accent-green);">Can do cardio?</strong> Great, go burn some calories to balance it out.
                     </p>
                     <p>
-                        <strong style="color: var(--accent-blue);">Can't do cardio?</strong> Doesn't matter. One insulin spike won't reset your progress. Fat loss happens over weeks, not hours.
+                        <strong style="color: var(--accent-green);">Can't do cardio?</strong> Doesn't matter. One insulin spike won't reset your progress. Fat loss happens over weeks, not hours.
                     </p>
                 </div>
             </div>
@@ -2518,8 +2725,8 @@
             <!-- Weekly Mindset -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(234, 179, 8, 0.2);">
-                        <span style="color: var(--accent-yellow);">&#128200;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128200;</span>
                     </div>
                     <div>
                         <div class="card-title">Think Weekly, Not Daily</div>
@@ -2533,7 +2740,7 @@
                     <p style="margin-bottom: 15px;">
                         <strong>One bad day doesn't ruin the week.</strong> It just means you have a bit less budget for the remaining days. Keep going.
                     </p>
-                    <p style="padding: 12px; background: rgba(234, 179, 8, 0.1); border-radius: 8px;">
+                    <p style="padding: 12px; background: var(--accent-green-glow); border-radius: 8px;">
                         <strong>Analogy:</strong> If you overspent on Monday, would you empty your bank account on Tuesday? No. You'd just be more careful the rest of the week.
                     </p>
                 </div>
@@ -2569,8 +2776,8 @@
             <!-- Self Sabotage -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
-                        <span style="color: var(--accent-purple);">&#128161;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128161;</span>
                     </div>
                     <div>
                         <div class="card-title">Catch Yourself Sabotaging</div>
@@ -2590,10 +2797,10 @@
             </div>
 
             <!-- What to do when you miss a day -->
-            <div class="card" style="border-color: var(--accent-yellow);">
+            <div class="card" style="border-color: var(--accent-green);">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(234, 179, 8, 0.2);">
-                        <span style="color: var(--accent-yellow);">&#128260;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128260;</span>
                     </div>
                     <div>
                         <div class="card-title">When You Completely Miss a Day</div>
@@ -2604,12 +2811,12 @@
                     <p style="margin-bottom: 15px; font-size: 1rem;"><strong>Step 1:</strong> Wake up tomorrow. That's it.</p>
                     <p style="margin-bottom: 15px;"><strong>Step 2:</strong> Open this app. Look at today's meals. Follow them.</p>
                     <p style="margin-bottom: 15px;"><strong>Step 3:</strong> There is no Step 3. Yesterday doesn't exist.</p>
-                    <div style="padding: 15px; background: rgba(234, 179, 8, 0.1); border-radius: 8px; margin-top: 15px;">
+                    <div style="padding: 15px; background: var(--accent-green-glow); border-radius: 8px; margin-top: 15px;">
                         <p style="margin-bottom: 10px;"><strong>No "making up for it."</strong> Don't skip meals tomorrow.</p>
                         <p style="margin-bottom: 10px;"><strong>No extra cardio.</strong> Just normal training.</p>
                         <p><strong>No guilt spiral.</strong> Yesterday was one meal. You have 21 meals this week.</p>
                     </div>
-                    <p style="margin-top: 15px; text-align: center; color: var(--accent-yellow); font-weight: 600;">
+                    <p style="margin-top: 15px; text-align: center; color: var(--accent-green); font-weight: 600;">
                         Your next meal is always a fresh start.
                     </p>
                 </div>
@@ -2618,7 +2825,7 @@
             <!-- Timeline Expectations -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
                         <span style="color: var(--accent-green);">&#128197;</span>
                     </div>
                     <div>
@@ -2654,8 +2861,8 @@
             <!-- Water Strategy -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(6, 182, 212, 0.2);">
-                        <span style="color: var(--accent-cyan);">&#128167;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#128167;</span>
                     </div>
                     <div>
                         <div class="card-title">Water: The Actual Strategy</div>
@@ -2679,53 +2886,12 @@
                     </p>
                 </div>
             </div>
-        </div>
 
-        <!-- PROGRESS SECTION -->
-        <div class="section" id="progress">
-            <!-- Weekly View -->
+            <!-- About the Scale -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: rgba(59, 130, 246, 0.2);">
-                        <span style="color: var(--accent-blue);">&#128197;</span>
-                    </div>
-                    <div>
-                        <div class="card-title">This Week</div>
-                        <div class="card-subtitle">Your progress at a glance</div>
-                    </div>
-                </div>
-                <div class="weekly-days" id="weeklyDays">
-                    <!-- Generated by JS -->
-                </div>
-                <p style="text-align: center; margin-top: 15px; color: var(--text-muted); font-size: 0.85rem;">
-                    Aim for 5+ green days. That's winning.
-                </p>
-            </div>
-
-            <!-- Streak History -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: rgba(34, 197, 94, 0.2);">
-                        <span style="color: var(--accent-green);">&#128293;</span>
-                    </div>
-                    <div>
-                        <div class="card-title">Your Streak Journey</div>
-                        <div class="card-subtitle">Every streak counts, even the short ones.</div>
-                    </div>
-                </div>
-                <div id="streakHistory" style="color: var(--text-secondary); font-size: 0.9rem;">
-                    <!-- Generated by JS -->
-                </div>
-                <p style="margin-top: 15px; padding: 12px; background: var(--bg-card-hover); border-radius: 8px; font-size: 0.85rem; color: var(--text-muted);">
-                    <strong>Streak broke?</strong> That's normal. The only failure is not starting again. Your next streak starts with the next meal.
-                </p>
-            </div>
-
-            <!-- Weight Notes -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: rgba(249, 115, 22, 0.2);">
-                        <span style="color: var(--accent-orange);">&#9878;</span>
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">&#9878;</span>
                     </div>
                     <div>
                         <div class="card-title">About the Scale</div>
@@ -2737,50 +2903,18 @@
                         <strong>Weight fluctuates 1-3kg daily.</strong> Water, food in stomach, salt intake - all affect the number.
                     </p>
                     <p style="margin-bottom: 12px;">
-                        <strong>Weigh yourself once a week</strong>, same day, same time (morning, after bathroom, before food).
+                        <strong>Weigh yourself 4-5 times a week</strong>, same time each day (morning, after bathroom, before food).
                     </p>
                     <p style="margin-bottom: 12px;">
                         <strong>Trend matters, not individual readings.</strong> Are you lower this month than last month? That's progress.
                     </p>
-                    <p style="padding: 12px; background: rgba(249, 115, 22, 0.1); border-radius: 8px;">
+                    <p style="padding: 12px; background: var(--accent-green-glow); border-radius: 8px;">
                         <strong>If the number goes up:</strong> Don't panic. Check next week. If it's still up, you're eating too much. If it's down, it was just water.
                     </p>
                 </div>
             </div>
-
-            <!-- Supplements (Simple) -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2);">
-                        <span style="color: var(--accent-purple);">&#128138;</span>
-                    </div>
-                    <div>
-                        <div class="card-title">Supplements (Optional)</div>
-                        <div class="card-subtitle">Only if you want. Not required.</div>
-                    </div>
-                </div>
-                <div class="supplement-list">
-                    <div class="supplement-item">
-                        <div class="supplement-icon">&#129472;</div>
-                        <div class="supplement-info">
-                            <h4>Whey Protein</h4>
-                            <p>1 scoop daily. Easy way to hit protein target.</p>
-                        </div>
-                    </div>
-                    <div class="supplement-item">
-                        <div class="supplement-icon">&#128170;</div>
-                        <div class="supplement-info">
-                            <h4>Creatine</h4>
-                            <p>5g daily, any time. Helps muscle/strength. Cheap. Works.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn btn-secondary mt-20" id="resetAllBtn">
-                Reset All Progress
-            </button>
         </div>
+
     </div>
 
     <script>
@@ -2815,9 +2949,10 @@
                 // Override meal plans with client data
                 Object.assign(mealPlans, data.mealPlans);
 
-                // Update page title with client name if provided
+                // Update page title and header with client name if provided
                 if (data.clientName) {
                     document.title = `${data.clientName}'s Meal Plan`;
+                    document.getElementById('headerTitle').textContent = `${data.clientName}'s Meal Plan`;
                 }
 
                 return false; // Success, continue with init
@@ -2994,12 +3129,11 @@
         function updateStreak() {
             const checksNeeded = ['breakfast', 'lunch', 'dinner', 'shake', 'water', 'veg', 'no-liquid-cals'];
             const completed = checksNeeded.filter(c => state.checks[c]).length;
-            const streakEl = document.getElementById('streakNumber');
-            const messageEl = document.getElementById('streakMessage');
-            const dotsEl = document.getElementById('streakDots');
+            const streakElCompact = document.getElementById('streakNumberCompact');
+            const dotsElCompact = document.getElementById('streakDotsCompact');
 
-            // Generate dots
-            dotsEl.innerHTML = '';
+            // Generate compact dots
+            dotsElCompact.innerHTML = '';
             for (let i = 0; i < 7; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'streak-dot';
@@ -3010,24 +3144,10 @@
                 if (i === state.streak) {
                     dot.classList.add('today');
                 }
-                dotsEl.appendChild(dot);
+                dotsElCompact.appendChild(dot);
             }
 
-            streakEl.textContent = state.streak;
-
-            if (completed === 7) {
-                messageEl.textContent = "All done today! You're crushing it.";
-                messageEl.style.background = 'rgba(34, 197, 94, 0.1)';
-                messageEl.style.color = 'var(--accent-green)';
-            } else if (completed >= 5) {
-                messageEl.textContent = `${completed}/7 done. Almost there!`;
-                messageEl.style.background = 'rgba(234, 179, 8, 0.1)';
-                messageEl.style.color = 'var(--accent-yellow)';
-            } else {
-                messageEl.textContent = `${completed}/7 done. Keep going.`;
-                messageEl.style.background = 'rgba(59, 130, 246, 0.1)';
-                messageEl.style.color = 'var(--accent-blue)';
-            }
+            streakElCompact.textContent = state.streak;
         }
 
         // Complete day button
@@ -3134,76 +3254,19 @@
             });
         }
 
-        // Weekly view
+        // Weekly view - removed with Progress tab
         function updateWeeklyView() {
-            const container = document.getElementById('weeklyDays');
-            const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-            const today = new Date();
-            const startOfWeek = new Date(today);
-            startOfWeek.setDate(today.getDate() - today.getDay() + 1);
-
-            container.innerHTML = '';
-            days.forEach((day, i) => {
-                const date = new Date(startOfWeek);
-                date.setDate(startOfWeek.getDate() + i);
-                const dateStr = date.toDateString();
-                const isToday = dateStr === today.toDateString();
-                const completed = state.weekProgress[dateStr];
-
-                let status = '&#8212;';
-                if (completed === true) status = '&#10004;';
-                else if (completed === false) status = '&#10060;';
-                if (isToday && !completed) status = '&#128308;';
-
-                container.innerHTML += `
-                    <div class="weekly-day" style="${isToday ? 'border-color: var(--accent-yellow);' : ''}">
-                        <div class="weekly-day-name">${day}</div>
-                        <div class="weekly-day-status">${status}</div>
-                    </div>
-                `;
-            });
+            // Progress section removed
         }
 
-        // Streak history
+        // Streak history - removed with Progress tab
         function updateStreakHistory() {
-            const container = document.getElementById('streakHistory');
-            let html = '';
-
-            // Show current active streak first
-            if (state.streak > 0) {
-                html += `<p style="margin-bottom: 12px; padding: 12px; background: var(--accent-green-glow); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px;">
-                    <strong style="color: var(--accent-green);">Current Streak: ${state.streak} days</strong> 🔥
-                </p>`;
-            }
-
-            // Show past streaks
-            if (state.streakHistory.length > 0) {
-                html += '<p style="margin-top: 16px; margin-bottom: 8px; color: var(--text-muted); font-size: 0.85rem;">Past Streaks:</p>';
-                html += state.streakHistory.map((s, i) => `
-                    <p style="margin-bottom: 8px;">Streak ${i + 1}: <strong>${s} days</strong></p>
-                `).join('');
-            } else if (state.streak === 0) {
-                html = '<p>No streaks yet. Complete 5+ non-negotiables today to start your first streak!</p>';
-            }
-
-            container.innerHTML = html;
+            // Progress section removed
         }
 
-        // Reset all
+        // Reset all - removed with Progress tab
         function setupReset() {
-            document.getElementById('resetAllBtn').addEventListener('click', () => {
-                if (confirm('This will reset ALL your progress. Are you sure?')) {
-                    if (state.streak > 0) {
-                        state.streakHistory.push(state.streak);
-                    }
-                    state.streak = 0;
-                    state.checks = {};
-                    state.water = 0;
-                    state.weekProgress = {};
-                    saveState();
-                    location.reload();
-                }
-            });
+            // Progress section removed
         }
 
         // Populate today's meals on TODAY tab
@@ -3220,7 +3283,7 @@
             container.innerHTML = `
                 <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
                     <div style="display: flex; gap: 10px; align-items: flex-start;">
-                        <span style="color: var(--accent-orange); font-weight: 600; width: 80px; flex-shrink: 0;">Breakfast</span>
+                        <span style="color: var(--accent-green); font-weight: 600; width: 80px; flex-shrink: 0;">Breakfast</span>
                         <div>
                             <div style="font-weight: 600;">${plan.breakfast.name}</div>
                             <div style="font-size: 0.85rem; color: var(--text-secondary);">${plan.breakfast.details}</div>
@@ -3229,7 +3292,7 @@
                 </div>
                 <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
                     <div style="display: flex; gap: 10px; align-items: flex-start;">
-                        <span style="color: var(--accent-blue); font-weight: 600; width: 80px; flex-shrink: 0;">Lunch</span>
+                        <span style="color: var(--accent-green); font-weight: 600; width: 80px; flex-shrink: 0;">Lunch</span>
                         <div>
                             <div style="font-weight: 600;">${plan.lunch.name}</div>
                             <div style="font-size: 0.85rem; color: var(--text-secondary);">${plan.lunch.details}</div>
@@ -3247,7 +3310,7 @@
                 </div>
                 <div style="padding: 12px 0;">
                     <div style="display: flex; gap: 10px; align-items: flex-start;">
-                        <span style="color: var(--accent-purple); font-weight: 600; width: 80px; flex-shrink: 0;">Snack</span>
+                        <span style="color: var(--accent-green); font-weight: 600; width: 80px; flex-shrink: 0;">Snack</span>
                         <div>
                             <div style="font-weight: 600;">${plan.snack.name}</div>
                             <div style="font-size: 0.85rem; color: var(--text-secondary);">${plan.snack.details}</div>
@@ -3316,67 +3379,6 @@
             }
         }
 
-        // Theme functions
-        function setTheme(color) {
-            // Set the accent color
-            document.documentElement.style.setProperty('--accent-green', color);
-
-            // Create a subtle glow version
-            const glowColor = color + '26'; // 15% opacity in hex
-            document.documentElement.style.setProperty('--accent-green-glow', glowColor);
-
-            // Save to localStorage
-            localStorage.setItem('mealPlanTheme', color);
-
-            // Update active state on color buttons
-            document.querySelectorAll('.theme-color').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.color === color);
-            });
-
-            // Update custom color picker
-            document.getElementById('customColorPicker').value = color;
-        }
-
-        function loadTheme() {
-            const saved = localStorage.getItem('mealPlanTheme');
-            if (saved) {
-                setTheme(saved);
-            } else {
-                // Mark default green as active
-                const defaultBtn = document.querySelector('.theme-color[data-color="#10b981"]');
-                if (defaultBtn) defaultBtn.classList.add('active');
-            }
-        }
-
-        function openThemeModal() {
-            document.getElementById('themeModal').classList.add('active');
-        }
-
-        function closeThemeModal() {
-            document.getElementById('themeModal').classList.remove('active');
-        }
-
-        function setupTheme() {
-            // Theme button click
-            document.getElementById('themeBtn').addEventListener('click', openThemeModal);
-
-            // Preset color clicks
-            document.querySelectorAll('.theme-color').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    setTheme(btn.dataset.color);
-                });
-            });
-
-            // Custom color picker
-            document.getElementById('customColorPicker').addEventListener('input', (e) => {
-                setTheme(e.target.value);
-                // Remove active from preset buttons when using custom
-                document.querySelectorAll('.theme-color').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-            });
-        }
-
         // Close modal on backdrop click
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-backdrop')) {
@@ -3389,7 +3391,6 @@
             if (e.key === 'Escape') {
                 closeModal();
                 closeConfirmModal();
-                closeThemeModal();
             }
         });
 
@@ -3416,7 +3417,6 @@
 
             // Continue with normal initialization
             loadState();
-            loadTheme();
             setupNavigation();
             setupChecks();
             setupWater();
@@ -3428,7 +3428,6 @@
             updateWeeklyView();
             updateStreakHistory();
             setupReset();
-            setupTheme();
             populateTodayMeals();
             setupExpandableCards();
         });
@@ -3460,32 +3459,6 @@
             <div class="confirm-actions">
                 <button class="confirm-btn-cancel" onclick="closeConfirmModal()">Cancel</button>
                 <button class="confirm-btn-confirm" onclick="confirmReset()">Reset Today</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Theme Picker Modal -->
-    <div id="themeModal" class="theme-modal">
-        <div class="modal-backdrop" onclick="closeThemeModal()"></div>
-        <div class="theme-modal-content">
-            <div class="theme-title">Choose Theme Color</div>
-            <div class="theme-colors">
-                <button class="theme-color" data-color="#10b981" style="background: #10b981;" title="Emerald"></button>
-                <button class="theme-color" data-color="#22c55e" style="background: #22c55e;" title="Green"></button>
-                <button class="theme-color" data-color="#6366f1" style="background: #6366f1;" title="Indigo"></button>
-                <button class="theme-color" data-color="#8b5cf6" style="background: #8b5cf6;" title="Violet"></button>
-                <button class="theme-color" data-color="#a855f7" style="background: #a855f7;" title="Purple"></button>
-                <button class="theme-color" data-color="#ec4899" style="background: #ec4899;" title="Pink"></button>
-                <button class="theme-color" data-color="#f43f5e" style="background: #f43f5e;" title="Rose"></button>
-                <button class="theme-color" data-color="#f97316" style="background: #f97316;" title="Orange"></button>
-                <button class="theme-color" data-color="#eab308" style="background: #eab308;" title="Yellow"></button>
-                <button class="theme-color" data-color="#22d3ee" style="background: #22d3ee;" title="Cyan"></button>
-            </div>
-            <div class="theme-custom">
-                <label class="custom-color-btn" for="customColorPicker">
-                    Custom
-                    <input type="color" id="customColorPicker" value="#10b981">
-                </label>
             </div>
         </div>
     </div>
