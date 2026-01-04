@@ -2,46 +2,179 @@
   "clientName": "Moose",
   "mealPlans": {
     "mon": {
-      "breakfast": { "name": "Scrambled Eggs on Toast", "details": "3 eggs, 2 slices wholemeal toast, bit of butter" },
-      "lunch": { "name": "Chicken Fillet Roll", "details": "From Spar/Centra - no butter/mayo, add salad" },
-      "dinner": { "name": "Chicken Stir Fry with Rice", "details": "Chicken breast, mixed veg, soy sauce, rice" },
-      "snack": { "name": "Protein Shake + Banana", "details": "Post-gym or whenever" }
+      "breakfast": {
+        "name": "Scrambled eggs",
+        "details": "4 whole eggs + 2 egg whites"
+      },
+      "lunch": {
+        "name": "Chicken & rice bowl",
+        "details": "180g chicken breast + 100g rice + mixed veg + 15ml olive oil"
+      },
+      "dinner": {
+        "name": "Beef stir fry",
+        "details": "180g lean beef mince + 180g egg noodles + stir fry veg + soy sauce"
+      },
+      "snack": {
+        "name": "1 large banana + 25g almonds + protein bar",
+        "details": "20g"
+      }
     },
     "tue": {
-      "breakfast": { "name": "Oats with Protein", "details": "Oats, milk, scoop of protein powder, banana" },
-      "lunch": { "name": "Tuna Pasta Salad", "details": "Tin of tuna, pasta, mayo (light), sweetcorn" },
-      "dinner": { "name": "Beef Mince & Potato", "details": "Lean mince, mashed potato, peas or carrots" },
-      "snack": { "name": "Protein Bar + Apple", "details": "" }
+      "breakfast": {
+        "name": "Omelette",
+        "details": "4 whole eggs + 40g cheese + spinach + mushrooms"
+      },
+      "lunch": {
+        "name": "Turkey mince bowl",
+        "details": "180g turkey mince + 250g sweet potato + green beans + salsa + sour cream"
+      },
+      "dinner": {
+        "name": "Salmon & potatoes",
+        "details": "180g salmon fillet + 250g baby potatoes + broccoli + lemon + butter"
+      },
+      "snack": {
+        "name": "Apple",
+        "details": "30g peanut butter + 150g Greek yogurt"
+      }
     },
     "wed": {
-      "breakfast": { "name": "Eggs & Bacon", "details": "2-3 eggs, 2 rashers, grilled tomato" },
-      "lunch": { "name": "Chicken Wrap", "details": "Grilled chicken, wrap, salad, light sauce" },
-      "dinner": { "name": "Salmon with Veg & Rice", "details": "Salmon fillet, broccoli, rice" },
-      "snack": { "name": "Protein Shake + Handful of Nuts", "details": "" }
+      "breakfast": {
+        "name": "Fried eggs",
+        "details": "4 whole eggs"
+      },
+      "lunch": {
+        "name": "Double chicken wrap",
+        "details": "1 large wrap + 160g chicken + salad + 40g hummus + feta + avocado"
+      },
+      "dinner": {
+        "name": "Lean beef pasta",
+        "details": "180g lean beef mince + 100g pasta + tomato sauce + parmesan + side salad"
+      },
+      "snack": {
+        "name": "2 bananas",
+        "details": "20g almonds"
+      }
     },
     "thu": {
-      "breakfast": { "name": "Protein Porridge", "details": "Oats, milk, protein powder, berries" },
-      "lunch": { "name": "Leftover Dinner (if prepped)", "details": "Or chicken salad from shop" },
-      "dinner": { "name": "Chicken Curry (Homemade)", "details": "Chicken, curry sauce (jar is fine), rice" },
-      "snack": { "name": "Greek Yogurt + Banana", "details": "" }
+      "breakfast": {
+        "name": "Scrambled eggs",
+        "details": "4 whole eggs + 2 egg whites"
+      },
+      "lunch": {
+        "name": "Chicken & rice bowl",
+        "details": "180g chicken breast + 100g rice + mixed veg + 15ml olive oil"
+      },
+      "dinner": {
+        "name": "Beef stir fry",
+        "details": "180g lean beef mince + 180g egg noodles + stir fry veg + soy sauce"
+      },
+      "snack": {
+        "name": "1 large banana + 25g almonds + protein bar",
+        "details": "20g"
+      }
     },
     "fri": {
-      "breakfast": { "name": "Eggs on Toast", "details": "2-3 eggs however you like, toast" },
-      "lunch": { "name": "Meal Deal (Smart Choice)", "details": "Sandwich with protein + fruit + water" },
-      "dinner": { "name": "Steak & Chips (Earned it)", "details": "Steak, oven chips, side salad" },
-      "snack": { "name": "Protein Shake", "details": "" }
+      "breakfast": {
+        "name": "Omelette",
+        "details": "4 whole eggs + 40g cheese + spinach + mushrooms"
+      },
+      "lunch": {
+        "name": "Turkey mince bowl",
+        "details": "180g turkey mince + 250g sweet potato + green beans + salsa + sour cream"
+      },
+      "dinner": {
+        "name": "Salmon & potatoes",
+        "details": "180g salmon fillet + 250g baby potatoes + broccoli + lemon + butter"
+      },
+      "snack": {
+        "name": "Apple",
+        "details": "30g peanut butter + 150g Greek yogurt"
+      }
     },
     "sat": {
-      "breakfast": { "name": "Big Fry (Controlled)", "details": "2 eggs, 2 rashers, beans, toast - no seconds" },
-      "lunch": { "name": "Whatever's Around", "details": "Just make sure there's protein in it" },
-      "dinner": { "name": "Flexible - Social Night?", "details": "See Eating Out section for damage control" },
-      "snack": { "name": "Protein if needed", "details": "Skip if dinner was big" }
+      "breakfast": {
+        "name": "Fried eggs",
+        "details": "4 whole eggs"
+      },
+      "lunch": {
+        "name": "Double chicken wrap",
+        "details": "1 large wrap + 160g chicken + salad + 40g hummus + feta + avocado"
+      },
+      "dinner": {
+        "name": "Lean beef pasta",
+        "details": "180g lean beef mince + 100g pasta + tomato sauce + parmesan + side salad"
+      },
+      "snack": {
+        "name": "2 bananas",
+        "details": "20g almonds"
+      }
     },
     "sun": {
-      "breakfast": { "name": "Lazy Eggs", "details": "3 eggs scrambled, toast, cup of tea" },
-      "lunch": { "name": "Roast Dinner (if someone's cooking)", "details": "Load up on meat & veg, easy on potatoes" },
-      "dinner": { "name": "Light - Soup or Sandwich", "details": "Especially if lunch was big" },
-      "snack": { "name": "Prep for the week", "details": "Cook chicken for Mon-Tue lunches" }
+      "breakfast": {
+        "name": "Scrambled eggs",
+        "details": "4 whole eggs + 2 egg whites"
+      },
+      "lunch": {
+        "name": "Chicken & rice bowl",
+        "details": "180g chicken breast + 100g rice + mixed veg + 15ml olive oil"
+      },
+      "dinner": {
+        "name": "Beef stir fry",
+        "details": "180g lean beef mince + 180g egg noodles + stir fry veg + soy sauce"
+      },
+      "snack": {
+        "name": "1 large banana + 25g almonds + protein bar",
+        "details": "20g"
+      }
     }
+  },
+  "macros": {
+    "calories": 2500,
+    "protein": 180,
+    "fat": 70,
+    "carbs": 270
+  },
+  "shoppingList": {
+    "proteins": [
+      "Eggs - 14",
+      "Chicken breast - 340g",
+      "Lean beef mince (5% fat) - 360g",
+      "Turkey mince - 180g",
+      "Salmon fillet - 180g",
+      "Bacon - 2 rashers",
+      "Greek yogurt - 150g",
+      "Whey protein - 3.5 scoops"
+    ],
+    "carbs": [
+      "Wholegrain bread - 6 slices",
+      "Rice - 100g (dry)",
+      "Egg noodles - 180g",
+      "Pasta - 100g (dry)",
+      "Sweet potato - 250g",
+      "Baby potatoes - 250g",
+      "Large wrap - 1",
+      "Baked beans - 120g"
+    ],
+    "fats": [
+      "Avocado - 1 medium (120g)",
+      "Cheese - 40g",
+      "Almonds - 45g",
+      "Peanut butter - 30g",
+      "Hummus - 40g",
+      "Feta - small amount",
+      "Sour cream - small amount",
+      "Butter - small amount",
+      "Olive oil - small bottle",
+      "Milk - 200ml",
+      "Protein bar (20g) - 1"
+    ],
+    "produce": [
+      "Bananas - 4",
+      "Apple - 1",
+      "Tomatoes - 2",
+      "Spinach, mushrooms, broccoli, green beans, stir fry veg, salad",
+      "Lemon - 1"
+    ],
+    "pantry": []
   }
 }
