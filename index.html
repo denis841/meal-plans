@@ -1512,6 +1512,210 @@
             box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
         }
 
+        /* Add to Home Screen Tutorial Modal */
+        .tutorial-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            display: none;
+            place-items: center;
+        }
+
+        .tutorial-modal.active {
+            display: grid;
+        }
+
+        .tutorial-modal .modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .tutorial-content {
+            position: relative;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 32px 24px;
+            max-width: 380px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            /* Hide scrollbar but keep scroll functionality */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .tutorial-content::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .tutorial-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .tutorial-subtitle {
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .platform-select {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .platform-btn {
+            flex: 1;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--border);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .platform-btn:hover,
+        .platform-btn.selected {
+            border-color: var(--accent-green);
+            background: var(--accent-green-glow);
+        }
+
+        .platform-btn .icon {
+            font-size: 2rem;
+        }
+
+        .tutorial-steps {
+            display: none;
+        }
+
+        .tutorial-steps.active {
+            display: block;
+        }
+
+        .tutorial-step {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .tutorial-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 200px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            margin-top: 8px;
+        }
+
+        .tutorial-dismiss {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border-radius: var(--radius-md);
+            border: none;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            font-weight: 600;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tutorial-dismiss:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .tutorial-skip {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .tutorial-skip:hover {
+            color: var(--text-secondary);
+        }
+
+        .tutorial-back {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 16px;
+            font-family: inherit;
+        }
+
+        .tutorial-back:hover {
+            color: var(--text-primary);
+        }
+
+        .tutorial-back.visible {
+            display: flex;
+        }
+
         /* Expandable Cards */
         .card-header.expandable {
             cursor: pointer;
@@ -1589,21 +1793,21 @@
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; padding: 8px 0;">
-                    <div style="text-align: center;">
+                    <div style="text-align: center; width: 70px;">
                         <canvas id="proteinChart" width="50" height="50"></canvas>
                         <div style="margin-top: 4px;">
                             <div style="font-weight: 700; font-size: 0.8rem; color: var(--text-primary);" id="proteinProgress">0g</div>
                             <div style="font-size: 0.65rem; color: #3b82f6;">Protein</div>
                         </div>
                     </div>
-                    <div style="text-align: center;">
+                    <div style="text-align: center; width: 70px;">
                         <canvas id="carbsChart" width="50" height="50"></canvas>
                         <div style="margin-top: 4px;">
                             <div style="font-weight: 700; font-size: 0.8rem; color: var(--text-primary);" id="carbsProgress">0g</div>
                             <div style="font-size: 0.65rem; color: #fbbf24;">Carbs</div>
                         </div>
                     </div>
-                    <div style="text-align: center;">
+                    <div style="text-align: center; width: 70px;">
                         <canvas id="fatsChart" width="50" height="50"></canvas>
                         <div style="margin-top: 4px;">
                             <div style="font-weight: 700; font-size: 0.8rem; color: var(--text-primary);" id="fatsProgress">0g</div>
@@ -2886,9 +3090,9 @@
             }
 
             // Map 7 days to 3-day rotation
-            const day1 = currentMealPlanData.mealPlans.mon;
-            const day2 = currentMealPlanData.mealPlans.tue;
-            const day3 = currentMealPlanData.mealPlans.wed;
+            const day1 = currentMealPlanData.mealPlans.day1;
+            const day2 = currentMealPlanData.mealPlans.day2;
+            const day3 = currentMealPlanData.mealPlans.day3;
 
             renderDayMeals('day1Meals', day1);
             renderDayMeals('day2Meals', day2);
@@ -3237,6 +3441,69 @@
                 progressEl.textContent = `${current}g / ${target}g`;
             }
         }
+
+        // ============================================
+        // ADD TO HOME SCREEN TUTORIAL
+        // ============================================
+
+        function checkShowTutorial() {
+            // Don't show if already in standalone mode (already installed)
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+                || window.navigator.standalone === true;
+
+            if (isStandalone) return;
+
+            // Don't show if user has already seen/dismissed
+            const tutorialSeen = localStorage.getItem('tutorialSeen');
+            if (tutorialSeen) return;
+
+            // Show tutorial
+            document.getElementById('tutorialModal').classList.add('active');
+        }
+
+        function selectPlatform(platform) {
+            // Update button states
+            document.querySelectorAll('.platform-btn').forEach(btn => btn.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+
+            // Hide platform select, show steps
+            document.getElementById('platformSelect').style.display = 'none';
+            document.getElementById('tutorialBack').classList.add('visible');
+
+            // Show appropriate steps
+            document.getElementById('iosSteps').classList.remove('active');
+            document.getElementById('androidSteps').classList.remove('active');
+            document.getElementById(platform + 'Steps').classList.add('active');
+        }
+
+        function goBackToPlatformSelect() {
+            // Hide steps
+            document.getElementById('iosSteps').classList.remove('active');
+            document.getElementById('androidSteps').classList.remove('active');
+
+            // Show platform select
+            document.getElementById('platformSelect').style.display = 'flex';
+            document.getElementById('tutorialBack').classList.remove('visible');
+
+            // Clear button selection
+            document.querySelectorAll('.platform-btn').forEach(btn => btn.classList.remove('selected'));
+        }
+
+        function dismissTutorial() {
+            localStorage.setItem('tutorialSeen', 'true');
+            document.getElementById('tutorialModal').classList.remove('active');
+        }
+
+        function skipTutorial() {
+            // Just close without saving - will show again next visit
+            document.getElementById('tutorialModal').classList.remove('active');
+        }
+
+        // Show tutorial on first load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Delay slightly so page loads first
+            setTimeout(checkShowTutorial, 500);
+        });
     </script>
 
     <!-- Custom Notification Modal -->
@@ -3266,6 +3533,144 @@
                 <button class="confirm-btn-cancel" onclick="closeConfirmModal()">Cancel</button>
                 <button class="confirm-btn-confirm" onclick="confirmReset()">Reset Today</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Add to Home Screen Tutorial Modal -->
+    <div id="tutorialModal" class="tutorial-modal">
+        <div class="modal-backdrop" onclick="skipTutorial()"></div>
+        <div class="tutorial-content">
+            <button id="tutorialBack" class="tutorial-back" onclick="goBackToPlatformSelect()">
+                <span>←</span> Back
+            </button>
+            <div class="tutorial-title">Install This App</div>
+            <div class="tutorial-subtitle">Add to your home screen for the best experience</div>
+
+            <div id="platformSelect" class="platform-select">
+                <button class="platform-btn" onclick="selectPlatform('ios')">
+                    <span class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                    </span>
+                    <span>iOS</span>
+                </button>
+                <button class="platform-btn" onclick="selectPlatform('android')">
+                    <span class="icon">🤖</span>
+                    <span>Android</span>
+                </button>
+            </div>
+
+            <div id="iosSteps" class="tutorial-steps">
+                <div class="tutorial-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Open in Safari</strong>
+                        <p>Make sure you're using Safari browser (not Chrome)</p>
+                        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--bg-elevated); border-radius: 8px; margin-top: 8px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88" fill="#0A84FF"/>
+                            </svg>
+                            <span style="color: var(--text-secondary); font-size: 0.85rem;">Safari</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Tap the Share button</strong>
+                        <p>Look for the square with an arrow pointing up at the bottom of your screen</p>
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--bg-elevated); border-radius: 12px; margin-top: 8px;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Tap "Add to Home Screen"</strong>
+                        <p>Scroll down in the share menu and tap this option</p>
+                        <div style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg-elevated); border-radius: 8px; margin-top: 8px;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="12" y1="8" x2="12" y2="16"/>
+                                <line x1="8" y1="12" x2="16" y2="12"/>
+                            </svg>
+                            <span style="color: var(--text-primary); font-size: 0.85rem;">Add to Home Screen</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Tap "Add"</strong>
+                        <p>The app icon will appear on your home screen!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="androidSteps" class="tutorial-steps">
+                <div class="tutorial-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Open in Chrome</strong>
+                        <p>Make sure you're using Chrome browser</p>
+                        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--bg-elevated); border-radius: 8px; margin-top: 8px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#4285F4" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="4" fill="#4285F4"/>
+                                <path d="M12 2a10 10 0 0 1 8.66 5h-5.66" stroke="#EA4335" stroke-width="2"/>
+                                <path d="M20.66 7a10 10 0 0 1-4.66 14.66" stroke="#FBBC05" stroke-width="2"/>
+                                <path d="M4 16.66A10 10 0 0 1 12 2" stroke="#34A853" stroke-width="2"/>
+                            </svg>
+                            <span style="color: var(--text-secondary); font-size: 0.85rem;">Chrome</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Tap the menu (⋮)</strong>
+                        <p>Look for the three dots in the top-right corner</p>
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--bg-elevated); border-radius: 12px; margin-top: 8px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--text-secondary)">
+                                <circle cx="12" cy="5" r="2"/>
+                                <circle cx="12" cy="12" r="2"/>
+                                <circle cx="12" cy="19" r="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Tap "Install App"</strong>
+                        <p>Or "Add to Home Screen" on some devices</p>
+                        <div style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg-elevated); border-radius: 8px; margin-top: 8px;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span style="color: var(--text-primary); font-size: 0.85rem;">Install App</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Confirm installation</strong>
+                        <p>The app icon will appear on your home screen!</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="tutorial-dismiss" onclick="dismissTutorial()">Got it!</button>
         </div>
     </div>
 

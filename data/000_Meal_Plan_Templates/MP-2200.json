@@ -1,7 +1,7 @@
 {
   "clientName": "MP-2200",
   "mealPlans": {
-    "mon": {
+    "day1": {
       "breakfast": {
         "name": "Scrambled eggs",
         "details": "3 whole eggs + 2 egg whites"
@@ -19,7 +19,7 @@
         "details": "20g almonds"
       }
     },
-    "tue": {
+    "day2": {
       "breakfast": {
         "name": "Omelette",
         "details": "3 whole eggs + 35g cheese + spinach + mushrooms"
@@ -37,7 +37,7 @@
         "details": "25g peanut butter"
       }
     },
-    "wed": {
+    "day3": {
       "breakfast": {
         "name": "Fried eggs",
         "details": "3 whole eggs"
@@ -53,78 +53,6 @@
       "snack": {
         "name": "1 banana + protein bar",
         "details": "20g protein"
-      }
-    },
-    "thu": {
-      "breakfast": {
-        "name": "Scrambled eggs",
-        "details": "3 whole eggs + 2 egg whites"
-      },
-      "lunch": {
-        "name": "Chicken & rice bowl",
-        "details": "160g chicken breast + 80g rice + mixed veg + 10ml olive oil"
-      },
-      "dinner": {
-        "name": "Beef stir fry",
-        "details": "160g lean beef mince + 160g egg noodles + stir fry veg + soy sauce"
-      },
-      "snack": {
-        "name": "1 banana",
-        "details": "20g almonds"
-      }
-    },
-    "fri": {
-      "breakfast": {
-        "name": "Omelette",
-        "details": "3 whole eggs + 35g cheese + spinach + mushrooms"
-      },
-      "lunch": {
-        "name": "Turkey mince bowl",
-        "details": "160g turkey mince + 220g sweet potato + green beans + salsa"
-      },
-      "dinner": {
-        "name": "Salmon & potatoes",
-        "details": "160g salmon fillet + 220g baby potatoes + broccoli + lemon"
-      },
-      "snack": {
-        "name": "Apple",
-        "details": "25g peanut butter"
-      }
-    },
-    "sat": {
-      "breakfast": {
-        "name": "Fried eggs",
-        "details": "3 whole eggs"
-      },
-      "lunch": {
-        "name": "Chicken wrap",
-        "details": "1 large wrap + 140g chicken + salad + 35g hummus + feta"
-      },
-      "dinner": {
-        "name": "Lean beef pasta",
-        "details": "160g lean beef mince + 90g pasta + tomato sauce + parmesan"
-      },
-      "snack": {
-        "name": "1 banana + protein bar",
-        "details": "20g protein"
-      }
-    },
-    "sun": {
-      "breakfast": {
-        "name": "Scrambled eggs",
-        "details": "3 whole eggs + 2 egg whites"
-      },
-      "lunch": {
-        "name": "Chicken & rice bowl",
-        "details": "160g chicken breast + 80g rice + mixed veg + 10ml olive oil"
-      },
-      "dinner": {
-        "name": "Beef stir fry",
-        "details": "160g lean beef mince + 160g egg noodles + stir fry veg + soy sauce"
-      },
-      "snack": {
-        "name": "1 banana",
-        "details": "20g almonds"
       }
     }
   },
