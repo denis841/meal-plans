@@ -1672,9 +1672,15 @@
             transition: all 0.2s ease;
         }
 
-        .tutorial-dismiss:hover {
+        .tutorial-dismiss:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .tutorial-dismiss:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            opacity: 0.5;
         }
 
         .tutorial-skip {
@@ -3000,10 +3006,10 @@
             // Get client UUID from URL hash (e.g., #a1b2c3d4...)
             let uuid = window.location.hash.substring(1);
 
-            // Fallback to MP-3000.json for testing if no UUID provided
+            // Fallback to a test client for local development
             if (!uuid) {
-                uuid = 'MP-3000';
-                console.log('No client ID in URL. Loading MP-3000 template for testing.');
+                uuid = '0b6c56f1c269410a8f39e1084235eebf'; // Ariel (MP-2000)
+                console.log('No client ID in URL. Loading test client for development.');
             }
 
             await loadMealPlan(uuid);
@@ -3022,15 +3028,18 @@
         function updateTodayMealsDisplay() {
             if (!currentMealPlanData) return;
 
-            const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
             const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             const today = new Date();
-            const dayKey = days[today.getDay()];
-            const dayName = dayNames[today.getDay()];
+            const dayOfWeek = today.getDay();
+            const dayName = dayNames[dayOfWeek];
             const todayDateStr = today.toISOString().split('T')[0];
 
+            // Map day of week to 3-day rotation: day1, day2, day3
+            const rotationDay = (dayOfWeek % 3) + 1;
+            const dayKey = `day${rotationDay}`;
+
             const dayLabel = document.getElementById('todayDayLabel');
-            if (dayLabel) dayLabel.textContent = dayName;
+            if (dayLabel) dayLabel.textContent = `${dayName} (Day ${rotationDay})`;
 
             const mealsList = document.getElementById('todayMealsList');
             if (!mealsList) return;
@@ -3474,6 +3483,9 @@
             document.getElementById('iosSteps').classList.remove('active');
             document.getElementById('androidSteps').classList.remove('active');
             document.getElementById(platform + 'Steps').classList.add('active');
+
+            // Enable the Got it button
+            document.getElementById('tutorialDismissBtn').disabled = false;
         }
 
         function goBackToPlatformSelect() {
@@ -3556,7 +3568,11 @@
                     <span>iOS</span>
                 </button>
                 <button class="platform-btn" onclick="selectPlatform('android')">
-                    <span class="icon">🤖</span>
+                    <span class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="#3DDC84">
+                            <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
+                        </svg>
+                    </span>
                     <span>Android</span>
                 </button>
             </div>
@@ -3670,7 +3686,7 @@
                 </div>
             </div>
 
-            <button class="tutorial-dismiss" onclick="dismissTutorial()">Got it!</button>
+            <button id="tutorialDismissBtn" class="tutorial-dismiss" onclick="dismissTutorial()" disabled>Got it!</button>
         </div>
     </div>
 
