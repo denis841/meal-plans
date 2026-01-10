@@ -105,10 +105,9 @@
             font-weight: 800;
             margin-bottom: 10px;
             letter-spacing: -0.03em;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
         .header p {
@@ -3689,6 +3688,26 @@
             <button id="tutorialDismissBtn" class="tutorial-dismiss" onclick="dismissTutorial()" disabled>Got it!</button>
         </div>
     </div>
+
+    <!-- Header Title Fade on Scroll -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const headerTitle = document.getElementById('headerTitle');
+            if (!headerTitle) return;
+
+            const scrollY = window.scrollY;
+            const fadeStart = 0;
+            const fadeEnd = 150;
+
+            if (scrollY <= fadeStart) {
+                headerTitle.style.opacity = 1;
+            } else if (scrollY >= fadeEnd) {
+                headerTitle.style.opacity = 0;
+            } else {
+                headerTitle.style.opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+            }
+        });
+    </script>
 
     <!-- Service Worker Registration -->
     <script>
