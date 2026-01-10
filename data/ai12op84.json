@@ -1,5 +1,5 @@
 {
-  "clientName": "Corey Smith",
+  "clientName": "Aidan Timmon",
   "mealPlans": {
     "day1": {
       "breakfast": {
@@ -80,12 +80,12 @@
     ]
   },
   "dailyTargets": {
-    "protein": 146,
-    "carbs": 754,
+    "protein": 138,
+    "carbs": 617,
     "note": "Fats come naturally from your food choices"
   },
   "goals": {
-    "twelveWeek": 78,
-    "ultimate": 84
+    "twelveWeek": 74,
+    "ultimate": 75
   }
 }

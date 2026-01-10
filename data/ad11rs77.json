@@ -1,54 +1,54 @@
 {
-  "clientName": "Conor colvin ",
+  "clientName": "Adil Kortbi",
   "mealPlans": {
     "day1": {
       "breakfast": {
         "name": "Big scrambled eggs + toast",
-        "details": "4 whole eggs + 2 egg whites + 1 slice wholegrain toast + butter (31g protein)"
+        "details": "3 whole eggs + 2 egg whites + 1 slice wholegrain toast + butter (27g protein)"
       },
       "lunch": {
         "name": "Chicken & rice bowl",
-        "details": "190g chicken breast + 168g rice + mixed veg + 10ml olive oil (57g protein)"
+        "details": "170g chicken breast + 168g rice + mixed veg + 10ml olive oil (51g protein)"
       },
       "dinner": {
         "name": "Beef stir fry",
-        "details": "190g lean beef mince + 238g egg noodles + stir fry veg + soy sauce + sesame oil (42g protein)"
+        "details": "170g lean beef mince + 238g egg noodles + stir fry veg + soy sauce + sesame oil (38g protein)"
       },
       "snack": {
         "name": "Greek yogurt + almonds",
-        "details": "180g Greek yogurt + 25g almonds (20g protein)"
+        "details": "160g Greek yogurt + 25g almonds (18g protein)"
       }
     },
     "day2": {
       "breakfast": {
         "name": "Cheese omelette + toast",
-        "details": "4 whole eggs + 35g cheese + spinach + mushrooms + 1 slice toast (30g protein)"
+        "details": "3 whole eggs + 30g cheese + spinach + mushrooms + 1 slice toast (26g protein)"
       },
       "lunch": {
         "name": "Turkey mince bowl",
-        "details": "200g turkey mince + 322g sweet potato + green beans + salsa + cheese (46g protein)"
+        "details": "180g turkey mince + 322g sweet potato + green beans + salsa + cheese (42g protein)"
       },
       "dinner": {
         "name": "Salmon & potatoes",
-        "details": "190g salmon fillet + 322g baby potatoes + broccoli + butter (48g protein)"
+        "details": "170g salmon fillet + 322g baby potatoes + broccoli + butter (43g protein)"
       },
       "snack": {
         "name": "Apple + cottage cheese + PB",
-        "details": "1 apple + 30g peanut butter + 120g cottage cheese (21g protein)"
+        "details": "1 apple + 25g peanut butter + 100g cottage cheese (18g protein)"
       }
     },
     "day3": {
       "breakfast": {
         "name": "Fried eggs + beans",
-        "details": "4 whole eggs + 168g baked beans + 1 slice toast (28g protein)"
+        "details": "3 whole eggs + 168g baked beans + 1 slice toast (24g protein)"
       },
       "lunch": {
         "name": "Double chicken wrap",
-        "details": "1 large wrap + 170g chicken + salad + 40g hummus + feta + avocado (53g protein)"
+        "details": "1 large wrap + 150g chicken + salad + 35g hummus + feta + avocado (47g protein)"
       },
       "dinner": {
         "name": "Lean beef pasta",
-        "details": "190g lean beef mince + 154g pasta + tomato sauce + parmesan + side salad (44g protein)"
+        "details": "170g lean beef mince + 154g pasta + tomato sauce + parmesan + side salad (39g protein)"
       },
       "snack": {
         "name": "Bananas + almonds + protein bar",
@@ -57,9 +57,9 @@
     }
   },
   "macros": {
-    "calories": 2650,
-    "protein": 180,
-    "fat": 70,
+    "calories": 2550,
+    "protein": 160,
+    "fat": 65,
     "carbs": 385
   },
   "shoppingList": {
@@ -80,12 +80,12 @@
     ]
   },
   "dailyTargets": {
-    "protein": 178,
-    "carbs": 352,
+    "protein": 170,
+    "carbs": 397,
     "note": "Fats come naturally from your food choices"
   },
   "goals": {
-    "twelveWeek": 94,
-    "ultimate": 92
+    "twelveWeek": 78,
+    "ultimate": 80
   }
 }

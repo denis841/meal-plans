@@ -3,80 +3,89 @@
   "mealPlans": {
     "day1": {
       "breakfast": {
-        "name": "Scrambled eggs",
-        "details": "3 whole eggs + 1 egg white"
+        "name": "Massive scrambled eggs + toast",
+        "details": "5 whole eggs + 2 egg whites + 1 slice wholegrain toast + butter (37g protein)"
       },
       "lunch": {
         "name": "Chicken & rice bowl",
-        "details": "130g chicken breast + 60g rice + mixed veg + 5ml olive oil"
+        "details": "230g chicken breast + 105g rice + mixed veg + 10ml olive oil (69g protein)"
       },
       "dinner": {
-        "name": "Beef stir fry",
-        "details": "130g lean beef mince + 120g egg noodles + stir fry veg + soy sauce"
+        "name": "Beef stir-fry with noodles",
+        "details": "230g beef strips + 140g egg noodles + stir-fry veg + 10ml sesame oil + soy sauce (72g protein)"
       },
       "snack": {
-        "name": "1 banana",
-        "details": "10g almonds"
+        "name": "Protein shake + banana",
+        "details": "2 scoops whey protein + 300ml water + 1 large banana (36g protein)"
       }
     },
     "day2": {
       "breakfast": {
-        "name": "Omelette",
-        "details": "3 whole eggs + 25g cheese + spinach + mushrooms"
+        "name": "Cheese omelette + toast",
+        "details": "5 whole eggs + 45g cheddar + 1 slice wholegrain toast + butter (36g protein)"
       },
       "lunch": {
-        "name": "Turkey mince bowl",
-        "details": "130g turkey mince + 180g sweet potato + green beans + salsa"
+        "name": "Turkey pasta",
+        "details": "230g turkey breast + 140g pasta + tomato sauce + mixed veg + 10ml olive oil (70g protein)"
       },
       "dinner": {
-        "name": "Salmon & potatoes",
-        "details": "130g salmon fillet + 180g baby potatoes + broccoli + lemon"
+        "name": "Fish & chips",
+        "details": "300g white fish (cod/haddock) + 210g oven chips + peas + lemon (68g protein)"
       },
       "snack": {
-        "name": "Apple",
-        "details": "15g peanut butter"
+        "name": "Greek yogurt bowl",
+        "details": "500g Greek yogurt + 1 large banana + 15g granola + honey drizzle (38g protein)"
       }
     },
     "day3": {
       "breakfast": {
-        "name": "Fried eggs",
-        "details": "3 whole eggs"
+        "name": "Fried eggs + beans",
+        "details": "5 whole eggs fried + 1 can baked beans + 1 slice wholegrain toast + butter (40g protein)"
       },
       "lunch": {
         "name": "Chicken wrap",
-        "details": "1 wrap + 110g chicken + salad + 25g hummus"
+        "details": "230g chicken breast + 1 large tortilla + salad + 30g hummus (70g protein)"
       },
       "dinner": {
-        "name": "Lean beef pasta",
-        "details": "130g lean beef mince + 70g pasta + tomato sauce + parmesan"
+        "name": "Spaghetti bolognese",
+        "details": "230g beef mince (5% fat) + 140g spaghetti + tomato pasta sauce + mixed veg (72g protein)"
       },
       "snack": {
-        "name": "1 banana",
-        "details": ""
+        "name": "Protein shake + fruit",
+        "details": "2 scoops whey protein + 300ml water + 1 apple (34g protein)"
       }
     }
   },
   "macros": {
-    "calories": 1800,
-    "protein": 135,
-    "fat": 55,
-    "carbs": 185
+    "calories": 2450,
+    "protein": 220,
+    "fat": 75,
+    "carbs": 210
   },
   "shoppingList": {
     "proteins": [
-      "Eggs - 10, Chicken breast - 240g, Lean beef mince (5% fat) - 260g, Turkey mince - 130g, Salmon fillet - 130g, Whey protein - 3 scoops"
+      ""
     ],
     "carbs": [
-      "Wholegrain bread - 3 slices, Rice - 60g (dry), Egg noodles - 120g, Pasta - 70g (dry), Sweet potato - 180g, Baby potatoes - 180g, Wrap - 1, Baked beans - 70g"
+      ""
     ],
     "fats": [
-      "Avocado - 30g, Cheese - 25g, Almonds - 10g, Peanut butter - 15g, Hummus - 25g, Olive oil - small amount"
+      ""
     ],
     "produce": [
-      "Bananas - 2, Apple - 1, Tomatoes - 1, Spinach mushrooms broccoli green beans mixed veg salad, Lemon - 1"
+      ""
     ],
     "pantry": [
       ""
     ]
+  },
+  "dailyTargets": {
+    "protein": 214,
+    "carbs": 71,
+    "note": "Fats come naturally from your food choices"
+  },
+  "goals": {
+    "twelveWeek": 100,
+    "ultimate": 90
   }
 }

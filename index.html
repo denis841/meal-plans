@@ -3139,8 +3139,13 @@
 
             const subtitle = document.getElementById('mealPlanSubtitle');
             if (subtitle) {
-                const macros = currentMealPlanData.macros;
-                if (macros) {
+                // Show daily targets if available (new format), otherwise fall back to macros
+                if (currentMealPlanData.dailyTargets) {
+                    const targets = currentMealPlanData.dailyTargets;
+                    subtitle.textContent = `Daily Targets: ${targets.protein}g protein | ${targets.carbs}g carbs`;
+                } else if (currentMealPlanData.macros) {
+                    // Fallback for old format
+                    const macros = currentMealPlanData.macros;
                     subtitle.textContent = `${macros.calories} cal | ${macros.protein}g protein`;
                 } else {
                     subtitle.textContent = 'Your personalized meal plan';
