@@ -2525,10 +2525,11 @@
                 // Override meal plans with client data
                 Object.assign(mealPlans, data.mealPlans);
 
-                // Update page title and header with client name if provided
+                // Update page title and header with client first name
                 if (data.clientName) {
-                    document.title = `${data.clientName}'s Meal Plan`;
-                    document.getElementById('headerTitle').textContent = `${data.clientName}'s Meal Plan`;
+                    const firstName = data.clientName.split(' ')[0];
+                    document.title = `${firstName}'s Meal Plan`;
+                    document.getElementById('headerTitle').textContent = `${firstName}'s Meal Plan`;
                 }
 
                 return false; // Success, continue with init
@@ -2983,10 +2984,11 @@
                 if (!response.ok) throw new Error('Client plan not found');
                 currentMealPlanData = await response.json();
 
-                // Update header with client name
+                // Update header with client first name
                 const headerTitle = document.querySelector('.header h1');
                 if (headerTitle && currentMealPlanData.clientName) {
-                    headerTitle.textContent = `${currentMealPlanData.clientName}'s Plan`;
+                    const firstName = currentMealPlanData.clientName.split(' ')[0];
+                    headerTitle.textContent = `${firstName}'s Plan`;
                 }
 
                 return currentMealPlanData;
