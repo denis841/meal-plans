@@ -1,0 +1,82 @@
+{
+  "clientName": "Corey Smith",
+  "mealPlans": {
+    "day1": {
+      "breakfast": {
+        "name": "Big breakfast",
+        "details": "4 whole eggs + 3 rashers bacon + 2 slices wholegrain toast + butter + 150g baked beans"
+      },
+      "lunch": {
+        "name": "Chicken & rice bowl",
+        "details": "250g chicken breast + 160g rice + mixed veg + 20ml olive oil + 50g hummus + avocado"
+      },
+      "dinner": {
+        "name": "Beef stir fry",
+        "details": "250g lean beef mince + 250g egg noodles + stir fry veg + soy sauce + sesame oil + side rice"
+      },
+      "snack": {
+        "name": "3 bananas + 40g almonds + protein bar + yogurt",
+        "details": "25g bar + 150g Greek yogurt"
+      }
+    },
+    "day2": {
+      "breakfast": {
+        "name": "Omelette feast",
+        "details": "5 whole eggs + 60g cheese + spinach + mushrooms + 2 slices toast + butter"
+      },
+      "lunch": {
+        "name": "Turkey mince bowl",
+        "details": "250g turkey mince + 350g sweet potato + green beans + salsa + sour cream + cheese + tortilla chips"
+      },
+      "dinner": {
+        "name": "Salmon & potatoes",
+        "details": "250g salmon fillet + 350g baby potatoes + broccoli + butter + side salad with dressing + bread roll"
+      },
+      "snack": {
+        "name": "Mega smoothie + apple",
+        "details": "2 bananas + 60g oats + 400ml milk + 1.5 scoop whey + 30g peanut butter + apple"
+      }
+    },
+    "day3": {
+      "breakfast": {
+        "name": "Fried eggs + full sides",
+        "details": "5 whole eggs + 180g baked beans + 2 slices toast + 2 rashers bacon"
+      },
+      "lunch": {
+        "name": "Double chicken wrap",
+        "details": "2 medium wraps + 220g chicken + salad + 60g hummus + feta + avocado + cheese"
+      },
+      "dinner": {
+        "name": "Lean beef pasta",
+        "details": "250g lean beef mince + 160g pasta + tomato sauce + parmesan + 2 garlic bread slices + side salad"
+      },
+      "snack": {
+        "name": "Mass gainer smoothie",
+        "details": "3 bananas + 80g oats + 400ml milk + 2 scoops whey + 40g peanut butter"
+      }
+    }
+  },
+  "macros": {
+    "calories": 3500,
+    "protein": 230,
+    "fat": 105,
+    "carbs": 395
+  },
+  "shoppingList": {
+    "proteins": [
+      "Eggs - 18, Chicken breast - 470g, Lean beef mince (5% fat) - 500g, Turkey mince - 250g, Salmon fillet - 250g, Bacon - 7 rashers, Greek yogurt - 150g, Whey protein - 7 scoops"
+    ],
+    "carbs": [
+      "Wholegrain bread - 10 slices, Rice - 180g (dry), Egg noodles - 250g, Pasta - 160g (dry), Sweet potato - 350g, Baby potatoes - 350g, Large wraps - 2, Baked beans - 330g, Oats - 140g, Garlic bread - 2 portions, Tortilla chips - small bag, Bread roll - 1"
+    ],
+    "fats": [
+      "Avocado - 2 medium, Cheese - 100g, Almonds - 40g, Peanut butter - 70g, Hummus - 110g, Feta - small amount, Sour cream - small amount, Butter - 40g, Olive oil - small bottle, Sesame oil - small bottle, Whole milk - 1.5 litres, Honey - small jar, Protein bar (25g) - 1"
+    ],
+    "produce": [
+      "Bananas - 10, Apples - 2, Tomatoes - 1, Spinach mushrooms broccoli green beans stir fry veg salad, Salad dressing - small bottle"
+    ],
+    "pantry": [
+      "Soy sauce, Tomato pasta sauce - 1 jar"
+    ]
+  }
+}

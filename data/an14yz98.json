@@ -1,5 +1,5 @@
 {
-  "clientName": "Ariel",
+  "clientName": "Anel kvrgic",
   "mealPlans": {
     "day1": {
       "breakfast": {
@@ -64,50 +64,19 @@
   },
   "shoppingList": {
     "proteins": [
-      "Chicken breast - 270g",
-      "Lean beef mince (5% fat) - 300g",
-      "Turkey mince - 150g",
-      "Salmon fillet - 150g",
-      "Eggs - 6",
-      "Greek yogurt - 200g",
-      "Whey protein - 3 scoops"
+      "Chicken breast - 270g, Lean beef mince (5% fat) - 300g, Turkey mince - 150g, Salmon fillet - 150g, Eggs - 6, Greek yogurt - 200g, Whey protein - 3 scoops"
     ],
     "carbs": [
-      "Rolled oats - 60g",
-      "Rice - 75g (dry)",
-      "Egg noodles - 150g",
-      "Pasta - 80g (dry)",
-      "Sweet potato - 200g",
-      "Baby potatoes - 200g",
-      "Wholegrain bread - 2 slices",
-      "Large wraps - 1",
-      "Granola - 40g"
+      "Rolled oats - 60g, Rice - 75g (dry), Egg noodles - 150g, Pasta - 80g (dry), Sweet potato - 200g, Baby potatoes - 200g, Wholegrain bread - 2 slices, Large wraps - 1, Granola - 40g"
     ],
     "fats": [
-      "Peanut butter - 35g",
-      "Almonds - 15g",
-      "Avocado - 1 small (50g)",
-      "Olive oil - small bottle",
-      "Hummus - 30g",
-      "Feta cheese - small amount",
-      "Parmesan - small amount"
+      "Peanut butter - 35g, Almonds - 15g, Avocado - 1 small (50g), Olive oil - small bottle, Hummus - 30g, Feta cheese - small amount, Parmesan - small amount"
     ],
     "produce": [
-      "Bananas - 2",
-      "Apples - 1",
-      "Mixed berries - 150g",
-      "Broccoli - 1 head",
-      "Green beans - 100g",
-      "Mixed salad - 1 bag",
-      "Lemon - 1"
+      "Bananas - 2, Apples - 1, Mixed berries - 150g, Broccoli - 1 head, Green beans - 100g, Mixed salad - 1 bag, Lemon - 1"
     ],
     "pantry": [
-      "Soy sauce",
-      "Tomato pasta sauce - 1 jar",
-      "Salsa - 1 jar",
-      "Honey - small jar",
-      "Milk - 400ml",
-      "Protein bar (20g) - 1"
+      "Soy sauce, Tomato pasta sauce - 1 jar, Salsa - 1 jar, Honey - small jar, Milk - 400ml, Protein bar (20g) - 1"
     ]
   }
 }

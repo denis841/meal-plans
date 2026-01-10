@@ -1,5 +1,5 @@
 {
-  "clientName": "Moose",
+  "clientName": "Darius",
   "mealPlans": {
     "day1": {
       "breakfast": {
@@ -64,45 +64,19 @@
   },
   "shoppingList": {
     "proteins": [
-      "Eggs - 14",
-      "Chicken breast - 340g",
-      "Lean beef mince (5% fat) - 360g",
-      "Turkey mince - 180g",
-      "Salmon fillet - 180g",
-      "Bacon - 2 rashers",
-      "Greek yogurt - 150g",
-      "Whey protein - 3.5 scoops"
+      "Eggs - 14, Chicken breast - 340g, Lean beef mince (5% fat) - 360g, Turkey mince - 180g, Salmon fillet - 180g, Bacon - 2 rashers, Greek yogurt - 150g, Whey protein - 3.5 scoops"
     ],
     "carbs": [
-      "Wholegrain bread - 6 slices",
-      "Rice - 100g (dry)",
-      "Egg noodles - 180g",
-      "Pasta - 100g (dry)",
-      "Sweet potato - 250g",
-      "Baby potatoes - 250g",
-      "Large wrap - 1",
-      "Baked beans - 120g"
+      "Wholegrain bread - 6 slices, Rice - 100g (dry), Egg noodles - 180g, Pasta - 100g (dry), Sweet potato - 250g, Baby potatoes - 250g, Large wrap - 1, Baked beans - 120g"
     ],
     "fats": [
-      "Avocado - 1 medium (120g)",
-      "Cheese - 40g",
-      "Almonds - 45g",
-      "Peanut butter - 30g",
-      "Hummus - 40g",
-      "Feta - small amount",
-      "Sour cream - small amount",
-      "Butter - small amount",
-      "Olive oil - small bottle",
-      "Milk - 200ml",
-      "Protein bar (20g) - 1"
+      "Avocado - 1 medium (120g), Cheese - 40g, Almonds - 45g, Peanut butter - 30g, Hummus - 40g, Feta - small amount, Sour cream - small amount, Butter - small amount, Olive oil - small bottle, Milk - 200ml, Protein bar (20g) - 1"
     ],
     "produce": [
-      "Bananas - 4",
-      "Apple - 1",
-      "Tomatoes - 2",
-      "Spinach, mushrooms, broccoli, green beans, stir fry veg, salad",
-      "Lemon - 1"
+      "Bananas - 4, Apple - 1, Tomatoes - 2, Spinach mushrooms broccoli green beans stir fry veg salad, Lemon - 1"
     ],
-    "pantry": []
+    "pantry": [
+      ""
+    ]
   }
 }

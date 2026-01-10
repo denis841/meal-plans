@@ -1,0 +1,82 @@
+{
+  "clientName": "Denis Dudas",
+  "mealPlans": {
+    "day1": {
+      "breakfast": {
+        "name": "Scrambled eggs + toast",
+        "details": "4 whole eggs + 2 egg whites + 2 slices wholegrain toast + butter"
+      },
+      "lunch": {
+        "name": "Chicken & rice bowl",
+        "details": "220g chicken breast + 140g rice + mixed veg + 15ml olive oil + side of hummus"
+      },
+      "dinner": {
+        "name": "Beef stir fry",
+        "details": "220g lean beef mince + 220g egg noodles + stir fry veg + soy sauce + sesame oil"
+      },
+      "snack": {
+        "name": "2 bananas + 35g almonds + protein bar",
+        "details": "25g bar"
+      }
+    },
+    "day2": {
+      "breakfast": {
+        "name": "Omelette + toast",
+        "details": "4 whole eggs + 50g cheese + spinach + mushrooms + 2 slices toast"
+      },
+      "lunch": {
+        "name": "Turkey mince bowl",
+        "details": "220g turkey mince + 300g sweet potato + green beans + salsa + sour cream + cheese"
+      },
+      "dinner": {
+        "name": "Salmon & potatoes",
+        "details": "220g salmon fillet + 320g baby potatoes + broccoli + butter + side salad with dressing"
+      },
+      "snack": {
+        "name": "Apple + smoothie",
+        "details": "40g peanut butter + 200g Greek yogurt + honey + 1 banana"
+      }
+    },
+    "day3": {
+      "breakfast": {
+        "name": "Fried eggs + beans",
+        "details": "4 whole eggs + 150g baked beans + 2 slices toast"
+      },
+      "lunch": {
+        "name": "Double chicken wrap",
+        "details": "1 large wrap + 200g chicken + salad + 50g hummus + feta + avocado + cheese"
+      },
+      "dinner": {
+        "name": "Lean beef pasta",
+        "details": "220g lean beef mince + 140g pasta + tomato sauce + parmesan + garlic bread"
+      },
+      "snack": {
+        "name": "Large smoothie",
+        "details": "2 bananas + 50g oats + 350ml milk + 1.5 scoop whey + 25g peanut butter"
+      }
+    }
+  },
+  "macros": {
+    "calories": 3250,
+    "protein": 215,
+    "fat": 95,
+    "carbs": 365
+  },
+  "shoppingList": {
+    "proteins": [
+      "Eggs - 16, Chicken breast - 420g, Lean beef mince (5% fat) - 440g, Turkey mince - 220g, Salmon fillet - 220g, Bacon - 4 rashers, Greek yogurt - 200g, Whey protein - 6 scoops"
+    ],
+    "carbs": [
+      "Wholegrain bread - 10 slices, Rice - 140g (dry), Egg noodles - 220g, Pasta - 140g (dry), Sweet potato - 300g, Baby potatoes - 320g, Large wrap - 1, Baked beans - 150g, Oats - 50g, Garlic bread - 1 portion"
+    ],
+    "fats": [
+      "Avocado - 1 medium (120g), Cheese - 90g, Almonds - 35g, Peanut butter - 65g, Hummus - 65g, Feta - small amount, Sour cream - small amount, Butter - 30g, Olive oil - small bottle, Sesame oil - small bottle, Whole milk - 1.2 litres, Honey - small jar, Protein bar (25g) - 1"
+    ],
+    "produce": [
+      "Bananas - 7, Apple - 1, Tomatoes - 1, Spinach mushrooms broccoli green beans stir fry veg salad, Salad dressing - small bottle"
+    ],
+    "pantry": [
+      "Soy sauce, Tomato pasta sauce - 1 jar"
+    ]
+  }
+}

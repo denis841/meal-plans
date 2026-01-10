@@ -1,5 +1,5 @@
 {
-  "clientName": "Adil",
+  "clientName": "Elvis Obi",
   "mealPlans": {
     "day1": {
       "breakfast": {
@@ -64,35 +64,19 @@
   },
   "shoppingList": {
     "proteins": [
-      "Eggs - 10",
-      "Chicken breast - 220g",
-      "Lean beef mince (5% fat) - 240g",
-      "Turkey mince - 120g",
-      "Salmon fillet - 120g",
-      "Greek yogurt - 100g",
-      "Whey protein - 3 scoops"
+      "Eggs - 10, Chicken breast - 220g, Lean beef mince (5% fat) - 240g, Turkey mince - 120g, Salmon fillet - 120g, Greek yogurt - 100g, Whey protein - 3 scoops"
     ],
     "carbs": [
-      "Wholegrain bread - 2 slices",
-      "Rice - 50g (dry)",
-      "Egg noodles - 100g",
-      "Pasta - 60g (dry)",
-      "Sweet potato - 150g",
-      "Baby potatoes - 150g",
-      "Small wrap - 1",
-      "Baked beans - 60g"
+      "Wholegrain bread - 2 slices, Rice - 50g (dry), Egg noodles - 100g, Pasta - 60g (dry), Sweet potato - 150g, Baby potatoes - 150g, Small wrap - 1, Baked beans - 60g"
     ],
     "fats": [
-      "Cheese - 20g",
-      "Olive oil - small amount",
-      "Hummus - 20g"
+      "Cheese - 20g, Olive oil - small amount, Hummus - 20g"
     ],
     "produce": [
-      "Apple - 1 small",
-      "Banana - 1 small",
-      "Spinach, mushrooms, broccoli, green beans, mixed veg, salad",
-      "Lemon - 1"
+      "Apple - 1 small, Banana - 1 small, Spinach mushrooms broccoli green beans mixed veg salad, Lemon - 1"
     ],
-    "pantry": []
+    "pantry": [
+      ""
+    ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "clientName": "Corey",
+  "clientName": "Alex Florea",
   "mealPlans": {
     "day1": {
       "breakfast": {
@@ -64,38 +64,19 @@
   },
   "shoppingList": {
     "proteins": [
-      "Eggs - 10",
-      "Chicken breast - 240g",
-      "Lean beef mince (5% fat) - 260g",
-      "Turkey mince - 130g",
-      "Salmon fillet - 130g",
-      "Whey protein - 3 scoops"
+      "Eggs - 10, Chicken breast - 240g, Lean beef mince (5% fat) - 260g, Turkey mince - 130g, Salmon fillet - 130g, Whey protein - 3 scoops"
     ],
     "carbs": [
-      "Wholegrain bread - 3 slices",
-      "Rice - 60g (dry)",
-      "Egg noodles - 120g",
-      "Pasta - 70g (dry)",
-      "Sweet potato - 180g",
-      "Baby potatoes - 180g",
-      "Wrap - 1",
-      "Baked beans - 70g"
+      "Wholegrain bread - 3 slices, Rice - 60g (dry), Egg noodles - 120g, Pasta - 70g (dry), Sweet potato - 180g, Baby potatoes - 180g, Wrap - 1, Baked beans - 70g"
     ],
     "fats": [
-      "Avocado - 30g",
-      "Cheese - 25g",
-      "Almonds - 10g",
-      "Peanut butter - 15g",
-      "Hummus - 25g",
-      "Olive oil - small amount"
+      "Avocado - 30g, Cheese - 25g, Almonds - 10g, Peanut butter - 15g, Hummus - 25g, Olive oil - small amount"
     ],
     "produce": [
-      "Bananas - 2",
-      "Apple - 1",
-      "Tomatoes - 1",
-      "Spinach, mushrooms, broccoli, green beans, mixed veg, salad",
-      "Lemon - 1"
+      "Bananas - 2, Apple - 1, Tomatoes - 1, Spinach mushrooms broccoli green beans mixed veg salad, Lemon - 1"
     ],
-    "pantry": []
+    "pantry": [
+      ""
+    ]
   }
 }
