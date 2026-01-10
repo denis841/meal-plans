@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Tracking Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --orange: #e65100;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 2.5rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--orange);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .steps {
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--black);
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            padding-top: 2px;
+        }
+
+        .step-content strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .step-content span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .callout-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .callout-box .highlight {
+            color: var(--orange);
+        }
+
+        .tip-box {
+            border-left: 3px solid var(--orange);
+            padding: 1rem 1.2rem;
+            background: var(--light-gray);
+            margin: 1.5rem 0;
+        }
+
+        .tip-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .tip-box strong {
+            color: var(--orange);
+        }
+
+        .fluctuation-list {
+            margin: 1rem 0 1.5rem 0;
+            padding-left: 1.2rem;
+        }
+
+        .fluctuation-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .comparison-col {
+            padding: 1.2rem;
+        }
+
+        .comparison-col.wrong {
+            background: var(--light-gray);
+        }
+
+        .comparison-col.right {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .comparison-col h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .comparison-col.right h3 {
+            color: var(--orange);
+        }
+
+        .comparison-col p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .bottom-line {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .bottom-line p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="weight-tracking-guide.pdf" download class="download-btn">↓ Download PDF</a>
+
+    <h1>Weight Tracking</h1>
+    <p class="subtitle">How to weigh yourself daily without it messing with your head.</p>
+
+    <h2>Why Weigh Daily</h2>
+    <p>Your weight fluctuates constantly. If you weigh once a week, you might catch a high day and think you've gained fat. Or a low day and think you've lost more than you have. Neither is true.</p>
+    <p><span class="highlight">Daily data gives you the full picture. One number means nothing. The trend means everything.</span></p>
+
+    <h2>The Routine</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <strong>Wake up</strong>
+                <span>Same time each day, give or take.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <strong>Use the bathroom</strong>
+                <span>Empty bladder at minimum. This matters more than you'd think.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <strong>Step on the scale</strong>
+                <span>Same scale, same spot on the floor, minimal clothing. Consistency is the point.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <strong>Log it in your Weight tab</strong>
+                <span>Open your meal plan, go to the Weight tab, enter the number. Takes 10 seconds.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <strong>Move on with your day</strong>
+                <span>Don't analyse it. Don't react to it. Just log it and go.</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>The Weekly Average</h2>
+    <p>This is the concept that changes everything.</p>
+    
+    <div class="callout-box">
+        <p>Your <span class="highlight">daily weight</span> is noise. Your <span class="highlight">weekly average</span> is signal. Compare this week's average to last week's average. That's the only number that matters.</p>
+    </div>
+
+    <p>Example: You weigh in at 75.2, 75.8, 75.4, 75.0, 75.6, 75.3, 75.1 across a week. Some days up, some down. Doesn't matter. Your average is 75.3kg. If last week's average was 75.8kg, you're down 0.5kg. That's real progress—even though individual days looked "bad."</p>
+
+    <h2>Why Weight Fluctuates</h2>
+    <p>Your body isn't broken. These are normal reasons your weight changes day to day:</p>
+    <ul class="fluctuation-list">
+        <li><strong>Water retention</strong> — sodium, carbs, hormones, even the weather</li>
+        <li><strong>Food volume</strong> — a big meal still digesting weighs something</li>
+        <li><strong>Sleep</strong> — poor sleep increases water retention</li>
+        <li><strong>Stress</strong> — cortisol holds onto water</li>
+        <li><strong>Exercise</strong> — inflammation from training adds temporary water weight</li>
+        <li><strong>Menstrual cycle</strong> — can swing weight 1-3kg through the month</li>
+    </ul>
+    <p>None of this is fat. It's just... stuff. The trend over weeks shows what's actually happening.</p>
+
+    <hr class="section-divider">
+
+    <h2>The Scale Is Data</h2>
+    <p>The number on the scale is not a grade. It's not a judgment of your effort, your worth, or whether you're "good" or "bad." It's information. That's it.</p>
+
+    <div class="tip-box">
+        <p><strong>If the number affects your mood,</strong> that's worth paying attention to. A measurement shouldn't have that power over you. If it does, let's talk about it—because the goal is a healthy relationship with data, not dread every morning.</p>
+    </div>
+
+    <p>The clients who get the best results treat weighing like brushing their teeth. Boring. Automatic. Emotionally neutral. That's the goal.</p>
+
+    <h2>How To Think About It</h2>
+    <div class="comparison">
+        <div class="comparison-col wrong">
+            <h3>Wrong</h3>
+            <p>"I'm up 0.4kg from yesterday. The diet isn't working. I'll eat less today."</p>
+        </div>
+        <div class="comparison-col right">
+            <h3>Right</h3>
+            <p>"I'm up 0.4kg from yesterday. Noted. My weekly average is still trending down. Moving on."</p>
+        </div>
+    </div>
+
+    <h2>Making It Stick</h2>
+    <div class="tip-box">
+        <p><strong>Anchor it to something.</strong> Weigh yourself right after you pee, before you shower. Same sequence every day. It becomes automatic.</p>
+    </div>
+
+    <div class="tip-box">
+        <p><strong>Keep the scale visible.</strong> Next to the toilet, in front of the shower—wherever you can't miss it. Out of sight = forgotten.</p>
+    </div>
+
+    <div class="tip-box">
+        <p><strong>Log immediately.</strong> Don't "remember it for later." Open the Weight tab, type the number, done. 10 seconds.</p>
+    </div>
+
+    <div class="bottom-line">
+        <p><span class="highlight">Daily weight is noise.</span> Weekly average is signal. <span class="highlight">Trust the trend.</span></p>
+    </div>
+</body>
+</html>

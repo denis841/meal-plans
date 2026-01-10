@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Prep Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --red: #e53935;
+            --gray: #666;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 2.5rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--red);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .steps {
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--black);
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            padding-top: 2px;
+        }
+
+        .step-content strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .step-content span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .comparison-col {
+            padding: 1.2rem;
+        }
+
+        .comparison-col.without {
+            background: #f5f5f5;
+        }
+
+        .comparison-col.with {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .comparison-col h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .comparison-col.with h3 {
+            color: var(--red);
+        }
+
+        .comparison-col ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .comparison-col ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .comparison-col.without ul li::before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: var(--gray);
+        }
+
+        .comparison-col.with ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+        }
+
+        .tip-box {
+            border-left: 3px solid var(--red);
+            padding: 1rem 1.2rem;
+            background: #fafafa;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .tip-box strong {
+            color: var(--red);
+        }
+
+        .bottom-line {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .bottom-line p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="meal-prep-guide.pdf" download class="download-btn">↓ Download PDF</a>
+
+    <h1>Meal Prep</h1>
+    <p class="subtitle">The simplest way to stick to your plan without thinking about it.</p>
+
+    <h2>What It Actually Is</h2>
+    <p>Meal prep is cooking some or all of your meals in advance so you don't have to make decisions when you're hungry, tired, or busy. That's it. You're not becoming a chef. You're removing friction.</p>
+    <p><span class="highlight">The goal isn't perfect meals. It's consistent meals.</span></p>
+
+    <h2>The Process</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <strong>Pick one day</strong>
+                <span>Sunday works for most people. Block 1-2 hours. Put it in your calendar like any other appointment.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <strong>Shop from your meal plan</strong>
+                <span>Your plan has a shopping list. Use it. Don't improvise. In and out in 30 minutes.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <strong>Batch cook your proteins</strong>
+                <span>Bake all your chicken. Brown all your mince. Cook all your eggs. This is 80% of the work.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <strong>Prep your carbs</strong>
+                <span>Rice, potatoes, oats—whatever your plan calls for. Cook in bulk. Store in containers.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <strong>Portion into containers</strong>
+                <span>Divide everything into meal-sized portions. Label if you want. Fridge for 3-4 days, freezer for longer.</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>Why It Works Better</h2>
+    <div class="comparison">
+        <div class="comparison-col without">
+            <h3>Without Prep</h3>
+            <ul>
+                <li>Daily decisions drain willpower</li>
+                <li>"What should I eat?" 3x/day</li>
+                <li>More likely to order takeaway</li>
+                <li>Ingredients go bad unused</li>
+                <li>Costs more money weekly</li>
+                <li>Eating becomes a task</li>
+            </ul>
+        </div>
+        <div class="comparison-col with">
+            <h3>With Prep</h3>
+            <ul>
+                <li>Zero daily food decisions</li>
+                <li>Open fridge, grab container, done</li>
+                <li>Plan is automatic, not effortful</li>
+                <li>Nothing goes to waste</li>
+                <li>Cheaper per meal</li>
+                <li>Eating takes 5 minutes</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Make It Effortless</h2>
+    <div class="tip-box">
+        <p><strong>Same containers.</strong> Get 10-12 identical containers. No hunting for lids. No mismatched sizes. Boring is efficient.</p>
+    </div>
+    <div class="tip-box">
+        <p><strong>Cook while you wait.</strong> Rice in the cooker, chicken in the oven, you're prepping veg. Everything finishes around the same time.</p>
+    </div>
+    <div class="tip-box">
+        <p><strong>Don't get fancy.</strong> Your meals don't need to be Instagram-worthy. Protein + carbs + veg in a container. Repeat. Done.</p>
+    </div>
+    <div class="tip-box">
+        <p><strong>Start with 3 days.</strong> You don't need to prep a full week on day one. Prep Sunday for Mon-Wed. See how it feels. Build from there.</p>
+    </div>
+
+    <div class="bottom-line">
+        <p><span class="highlight">2 hours once</span> beats <span class="highlight">30 minutes daily</span> every single time.</p>
+    </div>
+</body>
+</html>

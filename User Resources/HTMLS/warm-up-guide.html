@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm-Up Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --green: #2e7d32;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 2.5rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--green);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .why-item {
+            background: var(--light-gray);
+            padding: 1rem;
+        }
+
+        .why-item strong {
+            display: block;
+            color: var(--green);
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .why-item span {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .steps {
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--black);
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            padding-top: 2px;
+        }
+
+        .step-content strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .step-content span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .ramp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .ramp-table th {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ramp-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .ramp-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .example-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-box .example-title {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .example-box table {
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .example-box td {
+            padding: 0.4rem 0;
+        }
+
+        .example-box td:first-child {
+            color: var(--gray);
+        }
+
+        .example-box td:nth-child(2) {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .example-box td:last-child {
+            color: var(--gray);
+            text-align: right;
+        }
+
+        .example-box .working {
+            border-top: 1px solid #444;
+            padding-top: 0.6rem;
+            margin-top: 0.4rem;
+        }
+
+        .example-box .working td {
+            color: var(--green) !important;
+            font-weight: 700 !important;
+        }
+
+        .quick-ref {
+            background: var(--light-gray);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .quick-ref-title {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .quick-ref ol {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .quick-ref li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        .faq {
+            margin: 1rem 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .bottom-line {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .bottom-line p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="warm-up-guide.pdf" download class="download-btn">↓ Download PDF</a>
+
+    <h1>How to Warm Up</h1>
+    <p class="subtitle">A simple, universal system that works for every exercise.</p>
+
+    <h2>Why We Warm Up</h2>
+    <div class="why-grid">
+        <div class="why-item">
+            <strong>Raise Temperature</strong>
+            <span>Warm muscles perform better and are less injury-prone</span>
+        </div>
+        <div class="why-item">
+            <strong>Rehearse Movement</strong>
+            <span>Your nervous system needs to "practice" before going heavy</span>
+        </div>
+        <div class="why-item">
+            <strong>Prepare Joints</strong>
+            <span>Gradual loading protects tendons and ligaments</span>
+        </div>
+    </div>
+
+    <h2>The Warm-Up Formula</h2>
+    <p>Use this same system before any compound lift (squats, deadlifts, bench, rows, etc.)</p>
+
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <strong>General Warm-Up (2-5 minutes)</strong>
+                <span>Light cardio until you break a slight sweat. Walking, cycling, rowing, or jumping jacks.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <strong>Movement Practice (1 set)</strong>
+                <span>Empty bar or very light weight. 10-15 slow, controlled reps focusing on form.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <strong>Ramp-Up Sets (2-3 sets)</strong>
+                <span>Gradually increase weight while decreasing reps. Get your body ready for the working weight.</span>
+            </div>
+        </div>
+    </div>
+
+    <table class="ramp-table">
+        <thead>
+            <tr>
+                <th>Set</th>
+                <th>Weight</th>
+                <th>Reps</th>
+                <th>How It Feels</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Light</td>
+                <td>8</td>
+                <td>Easy — barely any effort</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Medium</td>
+                <td>5</td>
+                <td>Comfortable — still not challenging</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Heavy</td>
+                <td>2-3</td>
+                <td>Close to working weight — getting ready</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Then begin your working sets.</p>
+
+    <div class="example-box">
+        <div class="example-title">Example: Bench Press (Working at 80kg)</div>
+        <table>
+            <tr>
+                <td>Bar only</td>
+                <td>20kg</td>
+                <td>12 reps</td>
+            </tr>
+            <tr>
+                <td>Ramp 1</td>
+                <td>40kg</td>
+                <td>8 reps</td>
+            </tr>
+            <tr>
+                <td>Ramp 2</td>
+                <td>60kg</td>
+                <td>5 reps</td>
+            </tr>
+            <tr>
+                <td>Ramp 3</td>
+                <td>70kg</td>
+                <td>3 reps</td>
+            </tr>
+            <tr class="working">
+                <td>Working Sets</td>
+                <td>80kg</td>
+                <td>8 reps</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="quick-ref">
+        <div class="quick-ref-title">Quick Reference — Before Every Compound Lift</div>
+        <ol>
+            <li>General cardio → 2-5 min (break a sweat)</li>
+            <li>Empty bar/light → 10-15 reps (practice form)</li>
+            <li>Ramp up gradually → 2-3 sets getting heavier</li>
+            <li>Working sets → These are tracked in Everfit</li>
+        </ol>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>Common Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <strong>Do I need to warm up for every exercise?</strong>
+            <p>Full warm-up for your FIRST compound lift of the session. For subsequent exercises, 1-2 light ramp-up sets is enough since you're already warm.</p>
+        </div>
+        <div class="faq-item">
+            <strong>What about isolation exercises?</strong>
+            <p>Bicep curls, tricep extensions, etc. usually don't need a dedicated warm-up if you've already done compound lifts. One light set is fine.</p>
+        </div>
+        <div class="faq-item">
+            <strong>How long should warm-ups take?</strong>
+            <p>5-10 minutes total. Don't overthink it — the goal is to prepare, not exhaust yourself.</p>
+        </div>
+        <div class="faq-item">
+            <strong>Do warm-up sets count as work?</strong>
+            <p>No. They're preparation. Only your working sets are tracked and progressive.</p>
+        </div>
+    </div>
+
+    <div class="bottom-line">
+        <p><span class="highlight">Prepare the body. Rehearse the movement. Then lift.</span></p>
+    </div>
+</body>
+</html>

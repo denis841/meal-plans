@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Follow Your Training Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --purple: #7b1fa2;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 2.5rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--purple);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: var(--purple);
+            font-weight: 700;
+        }
+
+        .steps {
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--black);
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            padding-top: 2px;
+        }
+
+        .step-content strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .step-content span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .callout-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .callout-box .highlight {
+            color: var(--purple);
+        }
+
+        .tip-box {
+            border-left: 3px solid var(--purple);
+            padding: 1rem 1.2rem;
+            background: var(--light-gray);
+            margin: 1.5rem 0;
+        }
+
+        .tip-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .tip-box strong {
+            color: var(--purple);
+        }
+
+        .example-box {
+            background: var(--light-gray);
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+
+        .example-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        .rest-guide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .rest-item {
+            background: var(--light-gray);
+            padding: 1rem;
+        }
+
+        .rest-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .rest-item span {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .flow-list {
+            margin: 1.5rem 0;
+        }
+
+        .flow-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .flow-arrow {
+            color: var(--purple);
+            font-weight: 700;
+        }
+
+        .bottom-line {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .bottom-line p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .rest-guide {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="training-program-guide.pdf" download class="download-btn">↓ Download PDF</a>
+
+    <h1>How to Follow Your Program</h1>
+    <p class="subtitle">Everything you need to know to walk into the gym and execute.</p>
+
+    <h2>Where Your Program Lives</h2>
+    <p>Your training program is in the <span class="highlight">Everfit app</span>. Open it, tap on today's workout, and you'll see everything laid out: exercises, sets, reps, and weights. Each exercise has a demo video if you're unsure about form—tap on it and watch.</p>
+
+    <h2>Sets and Reps</h2>
+    <p>When you see something like <strong>3x10</strong>, that means:</p>
+    
+    <div class="example-box">
+        <div class="example-label">Example</div>
+        <strong>3 x 10</strong> = 3 sets of 10 reps
+    </div>
+    
+    <p>A <span class="highlight">rep</span> is one complete movement. A <span class="highlight">set</span> is a group of reps done together before resting. So 3x10 means: do 10 reps, rest, do 10 reps, rest, do 10 reps. Done.</p>
+
+    <h2>Week 1: Finding Your Numbers</h2>
+    <p>The first week uses <span class="highlight">RPE</span> — Rate of Perceived Exertion. It's just a 1-10 scale of how hard a set feels:</p>
+
+    <div class="callout-box">
+        <p><span class="highlight">RPE 7</span> = You could do 3 more reps if you had to<br>
+        <span class="highlight">RPE 8</span> = You could do 2 more reps<br>
+        <span class="highlight">RPE 9</span> = You could do 1 more rep<br>
+        <span class="highlight">RPE 10</span> = Nothing left in the tank</p>
+    </div>
+
+    <p>In Week 1, you'll pick weights that hit the RPE listed for each exercise. This tells me what you can actually lift, so I can program your numbers going forward. Be honest with yourself—it doesn't help either of us if you go too light or blow yourself up.</p>
+
+    <h2>Week 2 Onwards: Just Follow the Numbers</h2>
+    <p>After Week 1, your program switches to <span class="highlight">percentage-based</span>. The app will show you exactly what weight to lift. You don't need to calculate anything—just load the bar with what it says and do the reps.</p>
+
+    <div class="tip-box">
+        <p><strong>The thinking is done for you.</strong> Your job is to show up, lift the prescribed weight for the prescribed reps, log it, and leave. Simple.</p>
+    </div>
+
+    <h2>Rest Between Sets</h2>
+    <p>Rest isn't always prescribed, so here's the general rule:</p>
+
+    <div class="rest-guide">
+        <div class="rest-item">
+            <strong>Compound Lifts</strong>
+            <span>Squat, deadlift, bench, rows — rest 2-3 minutes. These are demanding. Take your time.</span>
+        </div>
+        <div class="rest-item">
+            <strong>Isolation Exercises</strong>
+            <span>Curls, tricep work, lateral raises — rest 60-90 seconds. Shorter rest, quicker pace.</span>
+        </div>
+    </div>
+
+    <p>If you're breathing hard and not recovered, rest longer. If you're scrolling your phone for 5 minutes between bicep curls, speed it up.</p>
+
+    <hr class="section-divider">
+
+    <h2>Logging Your Workout</h2>
+    <p>Log every set in the Everfit app as you go. Not after the workout. Not later tonight. <span class="highlight">As you go.</span></p>
+
+    <p>Finished a set? Enter the weight and reps immediately. This takes 5 seconds and means you'll never forget what you did. Your training history is how I track your progress and adjust your program.</p>
+
+    <h2>The Flow of a Session</h2>
+    <div class="flow-list">
+        <div class="flow-item"><span class="flow-arrow">→</span> Arrive at the gym</div>
+        <div class="flow-item"><span class="flow-arrow">→</span> Warm up (see warmup guide)</div>
+        <div class="flow-item"><span class="flow-arrow">→</span> Open Everfit, start today's workout</div>
+        <div class="flow-item"><span class="flow-arrow">→</span> Do first exercise — log your sets</div>
+        <div class="flow-item"><span class="flow-arrow">→</span> Move to next exercise — log your sets</div>
+        <div class="flow-item"><span class="flow-arrow">→</span> Repeat until program complete</div>
+        <div class="flow-item"><span class="flow-arrow">→</span> Leave</div>
+    </div>
+
+    <p>That's it. No guessing. No improvising. The program tells you what to do—you execute and log.</p>
+
+    <h2>Unsure About an Exercise?</h2>
+    <div class="tip-box">
+        <p><strong>Watch the demo.</strong> Every exercise in the app has a video attached. If you're not 100% sure on the movement, watch it before your first set. Better to take 30 seconds to check than to do it wrong for 3 sets.</p>
+    </div>
+
+    <div class="bottom-line">
+        <p><span class="highlight">Open the app. Follow the program. Log as you go.</span> That's the whole system.</p>
+    </div>
+</body>
+</html>

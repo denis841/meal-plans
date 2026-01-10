@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracking Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --blue: #1976d2;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 2.5rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--blue);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .steps {
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--black);
+            color: var(--white);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            padding-top: 2px;
+        }
+
+        .step-content strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .step-content span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .callout-box {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .callout-box .highlight {
+            color: var(--blue);
+        }
+
+        .tip-box {
+            border-left: 3px solid var(--blue);
+            padding: 1rem 1.2rem;
+            background: var(--light-gray);
+            margin: 1.5rem 0;
+        }
+
+        .tip-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .tip-box strong {
+            color: var(--blue);
+        }
+
+        .mistake-list {
+            margin: 1rem 0;
+        }
+
+        .mistake {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .mistake-x {
+            color: var(--gray);
+            font-weight: 700;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        .bottom-line {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .bottom-line p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="calorie-tracking-guide.pdf" download class="download-btn">↓ Download PDF</a>
+
+    <h1>Calorie Tracking</h1>
+    <p class="subtitle">How to make logging take 30 seconds a day instead of 10 minutes.</p>
+
+    <h2>Why Track At All</h2>
+    <p>You can't manage what you don't measure. People who think they're eating 1,800 calories are often eating 2,400. People who think they're eating "healthy" are often eating 300 calories of olive oil without realising it.</p>
+    <p><span class="highlight">Tracking removes the guesswork. You either hit your numbers or you didn't.</span></p>
+
+    <h2>Get Set Up (Once)</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <strong>Download MyFitnessPal</strong>
+                <span>Free version. iOS or Android. Create an account.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <strong>Set your calorie goal</strong>
+                <span>Go to Goals → Calorie & Macros. Enter the calories from your meal plan. Ignore MFP's suggestions.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <strong>Get a food scale</strong>
+                <span>£10-15 on Amazon. Non-negotiable. This is how you actually know what you're eating.</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>The Workflow That Changes Everything</h2>
+    <p>Most people quit tracking because it takes forever. They search for every ingredient, every time, for every meal. That's insane.</p>
+    
+    <div class="callout-box">
+        <p><span class="highlight">The fix:</span> Create your meals from your meal plan ONCE in MFP. Then logging is just selecting "Day 1 Breakfast" and adjusting the grams if needed. Done in seconds.</p>
+    </div>
+
+    <h2>Creating A Meal In MFP</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <strong>Go to "My Meals"</strong>
+                <span>Bottom menu → More → My Meals → Create Meal</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <strong>Name it clearly</strong>
+                <span>Use "Day 1 Breakfast" or "Chicken Rice Bowl" — something you'll recognise instantly.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <strong>Add each ingredient from your meal plan</strong>
+                <span>Search for the ingredient, enter the grams listed in your plan. Repeat for all ingredients.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <strong>Save it</strong>
+                <span>Now it exists forever. To log it, just search the meal name and tap to add.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-box">
+        <p><strong>Do this for every meal in your plan.</strong> Yes, it takes 20-30 minutes upfront. But you'll spend less than 2 minutes a day logging after that. For weeks. Maybe months.</p>
+    </div>
+
+    <h2>Daily Logging</h2>
+    <p>Once your meals are saved, your daily routine is:</p>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <strong>Weigh your food</strong>
+                <span>Put plate on scale, zero it, add food, note the grams.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <strong>Log the meal</strong>
+                <span>Search your saved meal name, tap to add. Adjust serving size if your portion differs.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <strong>Move on</strong>
+                <span>That's it. 30 seconds per meal.</span>
+            </div>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>Pro Moves</h2>
+    
+    <div class="tip-box">
+        <p><strong>Pre-log your day.</strong> Log everything in the morning or night before. Now you've committed. You just have to eat what you already logged.</p>
+    </div>
+
+    <div class="tip-box">
+        <p><strong>Use the barcode scanner.</strong> For packaged foods, tap the barcode icon in MFP and scan. Instant entry. No searching.</p>
+    </div>
+
+    <div class="tip-box">
+        <p><strong>When eating out, estimate and move on.</strong> Search for something similar in MFP, pick a reasonable option, log it. Don't stress. One imperfect log doesn't ruin anything. Not logging at all does.</p>
+    </div>
+
+    <h2>Why The Scale Matters</h2>
+    <p>"One tablespoon of peanut butter" can be 90 calories or 180 calories depending on how generous you are. "A chicken breast" can be 120g or 250g. You don't know until you weigh it.</p>
+    <p><span class="highlight">The scale removes the lying-to-yourself part.</span> It takes 3 seconds and makes your data actually mean something.</p>
+
+    <h2>Mistakes That Derail People</h2>
+    <div class="mistake-list">
+        <div class="mistake">
+            <span class="mistake-x">×</span>
+            <span><strong>Not logging cooking oils.</strong> That "healthy" stir fry has 200+ invisible calories from oil.</span>
+        </div>
+        <div class="mistake">
+            <span class="mistake-x">×</span>
+            <span><strong>Logging after the fact.</strong> You forget things. Pre-log or log as you eat.</span>
+        </div>
+        <div class="mistake">
+            <span class="mistake-x">×</span>
+            <span><strong>Eyeballing portions.</strong> Your "100g of rice" is probably 160g. Weigh it.</span>
+        </div>
+        <div class="mistake">
+            <span class="mistake-x">×</span>
+            <span><strong>Skipping "small" things.</strong> The handful of nuts, the splash of milk, the bite of someone's dessert. It adds up.</span>
+        </div>
+        <div class="mistake">
+            <span class="mistake-x">×</span>
+            <span><strong>Giving up after a bad day.</strong> One day off doesn't matter. A week off does. Just log the next meal.</span>
+        </div>
+    </div>
+
+    <div class="bottom-line">
+        <p><span class="highlight">20 minutes of setup</span> buys you <span class="highlight">months of easy tracking.</span></p>
+    </div>
+</body>
+</html>
