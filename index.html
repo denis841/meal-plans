@@ -2111,6 +2111,19 @@
                 </div>
                 <div id="day3Meals"></div>
             </div>
+
+            <!-- Day 4 -->
+            <div class="card" id="day4Card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: var(--accent-green-glow);">
+                        <span style="color: var(--accent-green);">4️⃣</span>
+                    </div>
+                    <div>
+                        <div class="card-title">Day 4</div>
+                    </div>
+                </div>
+                <div id="day4Meals"></div>
+            </div>
         </div>
 
         <!-- SHOPPING SECTION -->
@@ -3026,16 +3039,45 @@
         let fatsChart = null;
         let weightChart = null;
 
+        // === HELPER FUNCTIONS ===
+
+        // Get meal data from flat structure
+        function getMealData(dayKey, mealType) {
+            return {
+                name: currentMealPlanData[`${dayKey}_${mealType}_name`],
+                details: currentMealPlanData[`${dayKey}_${mealType}_details`],
+                macros: currentMealPlanData[`${dayKey}_${mealType}_macros`]
+            };
+        }
+
+        // Parse shopping CSV string to array
+        function parseShoppingList(csvString) {
+            if (!csvString) return [];
+            return csvString.split(',').map(item => item.trim()).filter(item => item);
+        }
+
         async function loadMealPlan(uuid) {
             try {
                 const response = await fetch(`data/${uuid}.json`);
                 if (!response.ok) throw new Error('Client plan not found');
-                currentMealPlanData = await response.json();
+                const data = await response.json();
 
-                // Update header with client first name
+                // Format detection: Check if this is the old nested format
+                if (data.mealPlans) {
+                    alert('This meal plan uses an outdated format. Please contact support for an updated plan.');
+                    const headerTitle = document.querySelector('.header h1');
+                    if (headerTitle) {
+                        headerTitle.textContent = 'Outdated Format';
+                    }
+                    return null;
+                }
+
+                currentMealPlanData = data;
+
+                // Update header with client first name (NEW: generated_for field)
                 const headerTitle = document.querySelector('.header h1');
-                if (headerTitle && currentMealPlanData.clientName) {
-                    const firstName = currentMealPlanData.clientName.split(' ')[0];
+                if (headerTitle && currentMealPlanData.generated_for) {
+                    const firstName = currentMealPlanData.generated_for.split(' ')[0];
                     headerTitle.textContent = `${firstName}'s Plan`;
                 }
 
@@ -3083,8 +3125,8 @@
             const dayName = dayNames[dayOfWeek];
             const todayDateStr = today.toISOString().split('T')[0];
 
-            // Map day of week to 3-day rotation: day1, day2, day3
-            const rotationDay = (dayOfWeek % 3) + 1;
+            // NEW: Map day of week to 4-day rotation instead of 3-day
+            const rotationDay = (dayOfWeek % 4) + 1;
             const dayKey = `day${rotationDay}`;
 
             const dayLabel = document.getElementById('todayDayLabel');
@@ -3093,19 +3135,26 @@
             const mealsList = document.getElementById('todayMealsList');
             if (!mealsList) return;
 
-            const todayMeals = currentMealPlanData.mealPlans[dayKey];
-            if (!todayMeals) return;
-
             // Get checked meals from localStorage (reset daily)
             const checkedMealsKey = `checkedMeals_${todayDateStr}`;
             let checkedMeals = JSON.parse(localStorage.getItem(checkedMealsKey) || '{}');
 
-            const mealTypes = ['breakfast', 'lunch', 'snack', 'dinner'];
-            const mealIcons = { breakfast: '🍳', lunch: '🥗', snack: '🍌', dinner: '🍽️' };
+            // NEW: 6 meal types instead of 4
+            const mealTypes = ['breakfast', 'shake', 'lunch', 'fruit', 'dinner', 'snack'];
+            const mealIcons = {
+                breakfast: '🍳',
+                shake: '🥤',
+                lunch: '🥗',
+                fruit: '🍎',
+                dinner: '🍽️',
+                snack: '🍌'
+            };
 
             mealsList.innerHTML = mealTypes.map(type => {
-                const meal = todayMeals[type];
-                if (!meal) return '';
+                // NEW: Use flat key construction for data access
+                const meal = getMealData(dayKey, type);
+                if (!meal.name) return ''; // Skip if meal doesn't exist
+
                 const isChecked = checkedMeals[type] || false;
                 return `
                     <div class="meal-item ${isChecked ? 'meal-checked' : ''}" style="display: flex; align-items: flex-start; gap: 12px; padding: 12px; margin: 8px 0; background: var(--bg-card-hover); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;" data-meal-type="${type}">
@@ -3117,6 +3166,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); text-transform: capitalize; margin-bottom: 4px; ${isChecked ? 'text-decoration: line-through;' : ''}">${type}</div>
                             <div style="color: var(--accent-green); font-weight: 500; ${isChecked ? 'text-decoration: line-through;' : ''}">${meal.name}</div>
                             <div style="color: var(--text-muted); font-size: 0.85rem;">${meal.details}</div>
+                            <div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 4px;">${meal.macros || ''}</div>
                         </div>
                     </div>
                 `;
@@ -3139,39 +3189,43 @@
 
             const subtitle = document.getElementById('mealPlanSubtitle');
             if (subtitle) {
-                // Show daily targets if available (new format), otherwise fall back to macros
-                if (currentMealPlanData.dailyTargets) {
-                    const targets = currentMealPlanData.dailyTargets;
-                    subtitle.textContent = `Daily Targets: ${targets.protein}g protein | ${targets.carbs}g carbs`;
-                } else if (currentMealPlanData.macros) {
-                    // Fallback for old format
-                    const macros = currentMealPlanData.macros;
-                    subtitle.textContent = `${macros.calories} cal | ${macros.protein}g protein`;
+                // NEW: Use flat structure keys
+                if (currentMealPlanData.target_calories) {
+                    subtitle.textContent = `Daily Targets: ${currentMealPlanData.target_calories} cal | ${currentMealPlanData.target_protein}g protein | ${currentMealPlanData.target_carbs}g carbs`;
+                } else if (currentMealPlanData.macros_calories) {
+                    subtitle.textContent = `${currentMealPlanData.macros_calories} cal | ${currentMealPlanData.macros_protein}g protein`;
                 } else {
                     subtitle.textContent = 'Your personalized meal plan';
                 }
             }
 
-            // Map 7 days to 3-day rotation
-            const day1 = currentMealPlanData.mealPlans.day1;
-            const day2 = currentMealPlanData.mealPlans.day2;
-            const day3 = currentMealPlanData.mealPlans.day3;
-
-            renderDayMeals('day1Meals', day1);
-            renderDayMeals('day2Meals', day2);
-            renderDayMeals('day3Meals', day3);
+            // NEW: Render 4 days instead of 3, passing day keys as strings
+            renderDayMeals('day1Meals', 'day1');
+            renderDayMeals('day2Meals', 'day2');
+            renderDayMeals('day3Meals', 'day3');
+            renderDayMeals('day4Meals', 'day4');
         }
 
-        function renderDayMeals(elementId, dayData) {
+        function renderDayMeals(elementId, dayKey) {
             const container = document.getElementById(elementId);
-            if (!container || !dayData) return;
+            if (!container || !currentMealPlanData) return;
 
-            const mealTypes = ['breakfast', 'lunch', 'snack', 'dinner'];
-            const mealIcons = { breakfast: '🍳', lunch: '🥗', snack: '🍌', dinner: '🍽️' };
+            // NEW: 6 meal types instead of 4
+            const mealTypes = ['breakfast', 'shake', 'lunch', 'fruit', 'dinner', 'snack'];
+            const mealIcons = {
+                breakfast: '🍳',
+                shake: '🥤',
+                lunch: '🥗',
+                fruit: '🍎',
+                dinner: '🍽️',
+                snack: '🍌'
+            };
 
             container.innerHTML = mealTypes.map(type => {
-                const meal = dayData[type];
-                if (!meal) return '';
+                // NEW: Flat key construction for data access
+                const meal = getMealData(dayKey, type);
+                if (!meal.name) return ''; // Skip if meal doesn't exist
+
                 return `
                     <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px; margin: 8px 0; background: var(--bg-card-hover); border-radius: 8px; border-left: 3px solid var(--accent-green);">
                         <span style="font-size: 1.2rem;">${mealIcons[type]}</span>
@@ -3179,6 +3233,7 @@
                             <div style="font-weight: 600; color: var(--text-primary); text-transform: capitalize; font-size: 0.85rem; margin-bottom: 2px;">${type}</div>
                             <div style="color: var(--accent-green); font-weight: 500;">${meal.name}</div>
                             <div style="color: var(--text-muted); font-size: 0.8rem;">${meal.details}</div>
+                            <div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 4px; font-weight: 500;">${meal.macros || ''}</div>
                         </div>
                     </div>
                 `;
@@ -3197,16 +3252,21 @@
         }
 
         function updateShoppingListDisplay() {
-            if (!currentMealPlanData || !currentMealPlanData.shoppingList) return;
+            if (!currentMealPlanData) return;
 
-            const shoppingList = currentMealPlanData.shoppingList;
             const checkedItems = JSON.parse(localStorage.getItem('shoppingChecked') || '[]');
 
-            renderShoppingCategory('proteinsCheckList', shoppingList.proteins, checkedItems);
-            renderShoppingCategory('carbsCheckList', shoppingList.carbs, checkedItems);
-            renderShoppingCategory('fatsCheckList', shoppingList.fats, checkedItems);
-            renderShoppingCategory('produceCheckList', shoppingList.produce, checkedItems);
-            renderShoppingCategory('pantryCheckList', shoppingList.pantry, checkedItems);
+            // NEW: Parse CSV strings from flat structure using helper function
+            renderShoppingCategory('proteinsCheckList',
+                parseShoppingList(currentMealPlanData.shopping_proteins), checkedItems);
+            renderShoppingCategory('carbsCheckList',
+                parseShoppingList(currentMealPlanData.shopping_carbs), checkedItems);
+            renderShoppingCategory('fatsCheckList',
+                parseShoppingList(currentMealPlanData.shopping_fats), checkedItems);
+            renderShoppingCategory('produceCheckList',
+                parseShoppingList(currentMealPlanData.shopping_produce), checkedItems);
+            renderShoppingCategory('pantryCheckList',
+                parseShoppingList(currentMealPlanData.shopping_pantry), checkedItems);
         }
 
         function renderShoppingCategory(elementId, items, checkedItems) {
@@ -3444,27 +3504,33 @@
         }
 
         function updateMacroCharts() {
-            if (!currentMealPlanData || !currentMealPlanData.macros) return;
+            if (!currentMealPlanData) return;
 
-            const macros = currentMealPlanData.macros;
+            // NEW: Flat structure access
+            const targetProtein = currentMealPlanData.macros_protein;
+            const targetCarbs = currentMealPlanData.macros_carbs;
+            const targetFat = currentMealPlanData.macros_fat;
 
-            // Calculate progress based on checked meals (each meal = 25%)
+            if (!targetProtein) return; // Guard clause if data missing
+
+            // NEW: Calculate progress based on checked meals (each meal = ~16.67% for 6 meals)
             const today = new Date();
             const todayDateStr = today.toISOString().split('T')[0];
             const checkedMealsKey = `checkedMeals_${todayDateStr}`;
             const checkedMeals = JSON.parse(localStorage.getItem(checkedMealsKey) || '{}');
 
-            const mealTypes = ['breakfast', 'lunch', 'snack', 'dinner'];
+            // NEW: 6 meal types instead of 4
+            const mealTypes = ['breakfast', 'shake', 'lunch', 'fruit', 'dinner', 'snack'];
             const checkedCount = mealTypes.filter(type => checkedMeals[type]).length;
-            const progressPercent = checkedCount / 4; // 0, 0.25, 0.5, 0.75, or 1
+            const progressPercent = checkedCount / 6; // 6 meals instead of 4
 
-            const currentProtein = Math.round(macros.protein * progressPercent);
-            const currentCarbs = Math.round(macros.carbs * progressPercent);
-            const currentFats = Math.round(macros.fat * progressPercent);
+            const currentProtein = Math.round(targetProtein * progressPercent);
+            const currentCarbs = Math.round(targetCarbs * progressPercent);
+            const currentFats = Math.round(targetFat * progressPercent);
 
-            createDonutChart('proteinChart', currentProtein, macros.protein, '#3b82f6', 'proteinProgress');
-            createDonutChart('carbsChart', currentCarbs, macros.carbs, '#fbbf24', 'carbsProgress');
-            createDonutChart('fatsChart', currentFats, macros.fat, '#f97316', 'fatsProgress');
+            createDonutChart('proteinChart', currentProtein, targetProtein, '#3b82f6', 'proteinProgress');
+            createDonutChart('carbsChart', currentCarbs, targetCarbs, '#fbbf24', 'carbsProgress');
+            createDonutChart('fatsChart', currentFats, targetFat, '#f97316', 'fatsProgress');
         }
 
         function createDonutChart(canvasId, current, target, color, progressId) {
