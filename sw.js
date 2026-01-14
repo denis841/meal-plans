@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meal-plan-v13';
+const CACHE_NAME = 'meal-plan-v14';
 const STATIC_ASSETS = [
   './',
   './index.html',
