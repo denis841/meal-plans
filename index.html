@@ -2562,8 +2562,71 @@
         metaReferrer.content = 'no-referrer';
         document.head.appendChild(metaReferrer);
 
-        // Check for client ID in hash URL
-        const clientId = window.location.hash.slice(1);
+        // Helper function to get client ID from URL (query param or hash) with localStorage fallback
+        function getClientId() {
+            // Check query param first (new format: ?client=ma16uv12)
+            let id = new URLSearchParams(window.location.search).get('client');
+
+            // Fallback to hash (old format: #ma16uv12 - backward compatibility)
+            if (!id) {
+                id = window.location.hash.slice(1);
+            }
+
+            // Store in localStorage for PWA resilience
+            if (id) {
+                localStorage.setItem('mealPlanClientId', id);
+            } else {
+                // If no ID in URL, try localStorage (PWA fallback)
+                id = localStorage.getItem('mealPlanClientId');
+            }
+
+            return id || '';
+        }
+
+        // Generate dynamic manifest with client-specific start_url for PWA installation
+        function generateDynamicManifest() {
+            const clientId = getClientId();
+
+            if (!clientId) {
+                // No client ID - use default manifest
+                return;
+            }
+
+            // Create dynamic manifest with client ID in start_url
+            const manifestData = {
+                "name": "My Meal Plan",
+                "short_name": "Meals",
+                "description": "Your personalized meal plan - no decisions required",
+                "start_url": `./?client=${clientId}`,
+                "scope": "./",
+                "display": "standalone",
+                "background_color": "#09090b",
+                "theme_color": "#09090b",
+                "orientation": "portrait",
+                "icons": [{
+                    "src": "icons/icon.svg",
+                    "sizes": "any",
+                    "type": "image/svg+xml",
+                    "purpose": "any maskable"
+                }]
+            };
+
+            // Convert to blob URL
+            const manifestBlob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
+            const manifestURL = URL.createObjectURL(manifestBlob);
+
+            // Update manifest link to point to dynamic version
+            const manifestLink = document.querySelector('link[rel="manifest"]');
+            if (manifestLink) {
+                manifestLink.href = manifestURL;
+            }
+        }
+
+        // Generate dynamic manifest immediately
+        generateDynamicManifest();
+
+        // Check for client ID (using new helper function)
+        const clientId = getClientId();
         const UUID_REGEX = /^[a-z]{2}[0-9]{2}[a-z]{2}[0-9]{2}$/i;
         let clientDataLoaded = false;
 
@@ -3094,8 +3157,8 @@
         }
 
         async function initMealPlanSystem() {
-            // Get client UUID from URL hash (e.g., #a1b2c3d4...)
-            let uuid = window.location.hash.substring(1);
+            // Get client UUID from URL (query param or hash with localStorage fallback)
+            let uuid = getClientId();
 
             // Fallback to a test client for local development
             if (!uuid) {
